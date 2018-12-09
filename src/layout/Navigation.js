@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
@@ -12,13 +12,14 @@ import StarIcon from '@material-ui/icons/Star';
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import PowerOffIcon from '@material-ui/icons/PowerOff';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import AppBar from '@material-ui/core/AppBar/AppBar';
 import Link from 'next/link';
 import IconButton from '@material-ui/core/IconButton/IconButton';
 import Typography from '@material-ui/core/Typography/Typography';
 import Toolbar from '@material-ui/core/Toolbar/Toolbar';
 
-const styles = {
+const styles = (theme) => ({
   list: {
     width: 250,
   },
@@ -32,7 +33,11 @@ const styles = {
     marginLeft: -12,
     marginRight: 20,
   },
-};
+  link: {
+    color: theme.palette.primary.contrastText,
+    textDecoration: 'none',
+  },
+});
 
 class Navigation extends React.Component {
   state = {
@@ -55,7 +60,7 @@ class Navigation extends React.Component {
     const sideList = (
       <div className={classes.list}>
         <List>
-          <Link href="/" prefetch>
+          <Link href="/courses" prefetch>
             <ListItem button>
               <ListItemIcon>
                 <LibraryBooksIcon />
@@ -84,14 +89,24 @@ class Navigation extends React.Component {
               <ListItemText primary="Odhlásit se" />
             </ListItem>
           ) : (
-            <Link href="/login" prefetch>
-              <ListItem button>
-                <ListItemIcon>
-                  <AccountCircleIcon />
-                </ListItemIcon>
-                <ListItemText primary="Přihlásit se" />
-              </ListItem>
-            </Link>
+            <Fragment>
+              <Link href="/login" prefetch>
+                <ListItem button>
+                  <ListItemIcon>
+                    <AccountCircleIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Přihlásit" />
+                </ListItem>
+              </Link>
+              <Link href="/signin" prefetch>
+                <ListItem button>
+                  <ListItemIcon>
+                    <PersonAddIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Registrovat" />
+                </ListItem>
+              </Link>
+            </Fragment>
           )}
         </List>
       </div>
@@ -115,7 +130,9 @@ class Navigation extends React.Component {
               className={classes.grow}
               noWrap
             >
-              IT kurzy
+              <Link href="/" prefetch>
+                <a className={classes.link}>IT Kurzy</a>
+              </Link>
             </Typography>
           </Toolbar>
           <SwipeableDrawer

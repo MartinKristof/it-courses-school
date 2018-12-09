@@ -46,7 +46,7 @@ const styles = (theme) => ({
   },
 });
 
-const steps = ['Vaše údaje', 'Platební údaje', 'Souhrn registrace'];
+const steps = ['Vaše údaje', 'Platební údaje', 'Souhrn'];
 
 function getStepContent(step) {
   switch (step) {

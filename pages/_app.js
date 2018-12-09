@@ -8,8 +8,8 @@ import NProgress from 'nprogress';
 import Router from 'next/router';
 import ReactGA from 'react-ga';
 import getPageContext from '../src/getPageContext';
-import Header from '../src/components/Header';
-import Footer from '../src/components/Footer';
+import Header from '../src/layout/Header';
+import Footer from '../src/layout/Footer';
 import Notifier from '../src/components/Notifier';
 
 class MyApp extends App {
@@ -40,9 +40,9 @@ class MyApp extends App {
       jssStyles.parentNode.removeChild(jssStyles);
     }
 
-    //ReactGA.initialize('UA-1234567-1');
+    ReactGA.initialize('UA-130653602-1');
 
-    let trackMe = false;
+    let trackMe = true;
 
     if (trackMe) {
       ReactGA.pageview(document.location.pathname);

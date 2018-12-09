@@ -21,6 +21,10 @@ const styles = (theme) => ({
   cardContent: {
     flexGrow: 1,
   },
+  cardActions: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
 });
 
 class CourseCard extends React.PureComponent {
@@ -55,30 +59,18 @@ class CourseCard extends React.PureComponent {
           </Typography>
           <Typography>{perex}</Typography>
         </CardContent>
-        <CardActions>
+        <CardActions className={classes.cardActions}>
           <Button
             size="small"
             color="primary"
             onClick={this.handleClick({
-              pathname: '/detail',
+              pathname: '/course-register',
               query: { name: title },
             })}
           >
-            Podrobnosti
+            Koupit
           </Button>
-          {isLogged && !favorite && (
-            <Button
-              size="small"
-              color="primary"
-              onClick={this.handleClick({
-                pathname: '/course-register',
-                query: { name: title },
-              })}
-            >
-              Přihlásit
-            </Button>
-          )}
-          {favorite && (
+          {isLogged && favorite ? (
             <Button
               size="small"
               color="secondary"
@@ -86,7 +78,19 @@ class CourseCard extends React.PureComponent {
             >
               Odebrat z oblíbených
             </Button>
+          ) : (
+            <Button
+              size="small"
+              color="secondary"
+              onClick={this.handleClick({
+                pathname: '/detail',
+                query: { name: title },
+              })}
+            >
+              Podrobnosti
+            </Button>
           )}
+          }
         </CardActions>
       </Card>
     );

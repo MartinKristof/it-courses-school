@@ -12,8 +12,8 @@ const styles = {
   },
 };
 
-const enhancedWithAuth = (AuthComponent) => {
-  return class Authenticated extends React.Component {
+const enhancedWithAuth = (AuthComponent) =>
+  class Authenticated extends React.PureComponent {
     componentDidMount() {
       const { isLogged } = this.props;
 
@@ -24,12 +24,13 @@ const enhancedWithAuth = (AuthComponent) => {
 
     render() {
       return !this.props.isLogged ? (
-        <CircularProgress style={styles.progress} />
+        <span>
+          <CircularProgress style={styles.progress} />
+        </span>
       ) : (
         <AuthComponent {...this.props} />
       );
     }
   };
-};
 
 export default enhancedWithAuth;

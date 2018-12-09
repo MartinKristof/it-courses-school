@@ -34,7 +34,7 @@ const Review = (props) => {
   return (
     <Fragment>
       <Typography variant="h6" gutterBottom>
-        Souhrn registrace
+        Souhrn
       </Typography>
       <List disablePadding>
         {products.map((product) => (

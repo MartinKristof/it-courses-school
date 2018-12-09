@@ -6,7 +6,7 @@ import {
   createGenerateClassName,
 } from '@material-ui/core/styles';
 import indigo from '@material-ui/core/colors/indigo';
-import green from '@material-ui/core/colors/green';
+import orange from '@material-ui/core/colors/orange';
 
 // A theme with custom primary and secondary color.
 // It's optional.
@@ -16,11 +16,13 @@ const theme = createMuiTheme({
       light: indigo[300],
       main: indigo[500],
       dark: indigo[700],
+      contrastText: '#fff',
     },
     secondary: {
-      light: green[300],
-      main: green[500],
-      dark: green[700],
+      light: orange[300],
+      main: orange[500],
+      dark: orange[700],
+      contrastText: '#000',
     },
   },
   typography: {

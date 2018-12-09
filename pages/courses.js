@@ -1,16 +1,15 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
+import Head from 'next/head';
 import CourseCardList from '../src/components/CourseCardList';
-import enhancedWithAuth from '../src/hoc/withAuth';
 import Hero from '../src/components/Hero';
 import Layout from '../src/layout/Layout';
-import Head from 'next/head';
 
-const Favorites = ({ isLogged }) => (
+const Courses = ({ isLogged }) => (
   <Fragment>
     <Head>
-      <title>IT Kurzy - Oblíbené kurzy</title>
+      <title>IT Kurzy - Všechny kurzy</title>
     </Head>
     <main>
       <Hero>
@@ -21,21 +20,21 @@ const Favorites = ({ isLogged }) => (
           color="textPrimary"
           gutterBottom
         >
-          Oblíbené kurzy
+          Všechny kurzy
         </Typography>
         <Typography variant="h6" align="center" color="textSecondary" paragraph>
-          Zde si můžete prohlídnout své oblíbené kurzy.
+          Přheled všechny kurzů.
         </Typography>
       </Hero>
     </main>
     <Layout>
-      <CourseCardList isLogged={isLogged} count={6} favorites />
+      <CourseCardList isLogged={isLogged} count={8} />
     </Layout>
   </Fragment>
 );
 
-Favorites.propTypes = {
+Courses.propTypes = {
   isLogged: PropTypes.bool.isRequired,
 };
 
-export default enhancedWithAuth(Favorites);
+export default Courses;

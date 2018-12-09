@@ -62,7 +62,7 @@ class AddressForm extends React.Component {
               type="date"
               id="date"
               name="date"
-              label="Termín kurzu"
+              label="Termín konání"
               defaultValue="2017-05-24"
               InputLabelProps={{
                 shrink: true,
@@ -72,7 +72,7 @@ class AddressForm extends React.Component {
           </Grid>
           <Grid item xs={12} sm={6}>
             <FormControl required fullWidth>
-              <InputLabel htmlFor="place">Místo kurzu</InputLabel>
+              <InputLabel htmlFor="place">Místo konání</InputLabel>
               <Select
                 value={this.state.place}
                 autoWidth

@@ -70,6 +70,9 @@ class MyApp extends App {
     window.localStorage.removeItem('isLogged');
 
     this.setState({ isLogged: false });
+    this.showNotifier('Odhlášení se podařilo', 'info');
+
+    Router.replace('/');
   };
 
   handleLogin = () => {

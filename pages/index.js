@@ -48,28 +48,30 @@ class Index extends React.Component {
               contents, the creator, etc. Make it short and sweet, but not too
               short so folks don&apos;t simply skip over it entirely.
             </Typography>
-            <div className={classes.heroButtons}>
-              <Grid container spacing={16} justify="center">
-                <Grid item>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={this.handleChangeRoute('/login')}
-                  >
-                    Přihlásit se
-                  </Button>
+            {!isLogged && (
+              <div className={classes.heroButtons}>
+                <Grid container spacing={16} justify="center">
+                  <Grid item>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={this.handleChangeRoute('/login')}
+                    >
+                      Přihlásit se
+                    </Button>
+                  </Grid>
+                  <Grid item>
+                    <Button
+                      variant="outlined"
+                      color="primary"
+                      onClick={this.handleChangeRoute('/signin')}
+                    >
+                      Registrovat se
+                    </Button>
+                  </Grid>
                 </Grid>
-                <Grid item>
-                  <Button
-                    variant="outlined"
-                    color="primary"
-                    onClick={this.handleChangeRoute('/signin')}
-                  >
-                    Registrovat se
-                  </Button>
-                </Grid>
-              </Grid>
-            </div>
+              </div>
+            )}
           </Hero>
         </main>
         <Layout>

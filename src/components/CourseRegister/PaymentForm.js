@@ -21,9 +21,14 @@ const PaymentForm = () => {
         <Grid item xs={12} md={6}>
           <TextField
             required
-            id="expDate"
+            type="date"
+            id="date"
+            name="date"
             label="Datum expirace"
-            placeholer="11/22"
+            defaultValue="2017-05"
+            InputLabelProps={{
+              shrink: true,
+            }}
             fullWidth
           />
         </Grid>

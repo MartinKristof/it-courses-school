@@ -1,6 +1,5 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core';
-import List from '@material-ui/core/List/List';
 import { generate } from '../services/ElementsGenerator';
 import PropTypes from 'prop-types';
 
@@ -22,14 +21,18 @@ const styles = (theme) => ({
 });
 
 const Gallery = ({ classes }) => (
-  <List dense={false}>
+  <div>
     {generate(
       <span>
-        <img className={classes.image} src="https://via.placeholder.com/150" />
+        <img
+          className={classes.image}
+          src="https://via.placeholder.com/150"
+          alt="Course image"
+        />
       </span>,
       3,
     )}
-  </List>
+  </div>
 );
 
 Gallery.propTypes = {

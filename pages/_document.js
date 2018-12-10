@@ -19,11 +19,16 @@ class MyDocument extends Document {
             name="theme-color"
             content={pageContext.theme.palette.primary.main}
           />
+          <meta
+            name="keywords"
+            content="IT kurzy, programovací jazyky, IT školení, školení IT, kurz programování, odborné kurzy, rekvalifikační kurz IT"
+          />
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
           />
           <link rel="stylesheet" href="/static/nprogress.css" />
+          <link rel="stylesheet" href="/static/image-gallery.css" />
         </Head>
         <body>
           <Main />

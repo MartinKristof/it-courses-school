@@ -18,6 +18,7 @@ import Gallery from '../src/components/Gallery';
 import { generate } from '../src/services/ElementsGenerator';
 import Layout from '../src/layout/Layout';
 import Head from 'next/head';
+import Chip from '@material-ui/core/Chip/Chip';
 
 const styles = (theme) => ({
   ratingBlock: {
@@ -35,6 +36,9 @@ const styles = (theme) => ({
   },
   lectorTitle: {
     display: 'inline-flex',
+  },
+  chip: {
+    margin: theme.spacing.unit / 2,
   },
 });
 
@@ -78,7 +82,10 @@ class Detail extends React.Component {
                   <Grid item xs={12}>
                     <div className={classes.lectorBlock}>
                       <Avatar className={classes.avatar}>
-                        <img src="https://via.placeholder.com/150" />
+                        <img
+                          src="https://via.placeholder.com/150"
+                          alt="Lector"
+                        />
                       </Avatar>
                       <Typography
                         component="h2"
@@ -105,6 +112,10 @@ class Detail extends React.Component {
                     >
                       Koupit
                     </Button>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Chip label="Java" className={classes.chip} />
+                    <Chip label="Back-end" className={classes.chip} />
                   </Grid>
                 </Grid>
               </Grid>

@@ -7,30 +7,33 @@ import JssProvider from 'react-jss/lib/JssProvider';
 import NProgress from 'nprogress';
 import Router from 'next/router';
 import ReactGA from 'react-ga';
+import Cookies from 'js-cookie';
 import getPageContext from '../src/getPageContext';
 import Header from '../src/layout/Header';
 import Footer from '../src/layout/Footer';
 import Notifier from '../src/components/Notifier';
+import { isAuthenticated } from '../src/services/auth/auth';
 
 class MyApp extends App {
   constructor(props) {
     super(props);
     this.pageContext = getPageContext();
+
     this.state = {
-      isLogged: this.pageContext.isLogged,
+      isLogged: this.props.isLogged,
       notifier: { isOpen: false, message: '', variant: null },
     };
   }
 
-  static async getInitialProps({ Component, router, ctx }) {
+  static async getInitialProps({ Component, ctx }) {
+    const { req: request } = ctx;
     let pageProps = {};
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
 
-    //console.log(ctx);
-    return { pageProps };
+    return { pageProps, isLogged: isAuthenticated(request) };
   }
 
   componentDidMount() {
@@ -67,7 +70,7 @@ class MyApp extends App {
   }
 
   handleLogout = () => {
-    window.localStorage.removeItem('isLogged');
+    Cookies.remove('jwt');
 
     this.setState({ isLogged: false });
     this.showNotifier('Odhlášení se podařilo', 'info');
@@ -76,7 +79,7 @@ class MyApp extends App {
   };
 
   handleLogin = () => {
-    window.localStorage.setItem('isLogged', true);
+    Cookies.set('jwt', new Date().toString());
 
     this.setState({ isLogged: true });
   };

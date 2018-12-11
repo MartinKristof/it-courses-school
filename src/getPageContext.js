@@ -39,10 +39,6 @@ function createPageContext() {
     sheetsRegistry: new SheetsRegistry(),
     // The standard class name generator.
     generateClassName: createGenerateClassName(),
-    isLogged:
-      typeof window !== 'undefined'
-        ? !!window.localStorage.getItem('isLogged')
-        : false,
   };
 }
 

@@ -1,42 +1,33 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core';
-import { generate } from '../services/ElementsGenerator';
-import PropTypes from 'prop-types';
+import ImageGallery from 'react-image-gallery';
 
-const styles = (theme) => ({
-  image: {
-    width: 270,
-    marginBottom: theme.spacing.unit * 3,
-    [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
-      width: 150,
-      marginRight: theme.spacing.unit * 3,
-    },
-    [theme.breakpoints.up(theme.breakpoints.values.md)]: {
-      width: 80,
-    },
-    [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
-      width: 100,
-    },
+const images = [
+  {
+    original: 'static/images/classroom-2093743_1920.jpg',
+    thumbnail: 'static/images/classroom-2093743_1920.jpg',
   },
-});
+  {
+    original: 'static/images/classroom-2093744_1920.jpg',
+    thumbnail: 'static/images/classroom-2093744_1920.jpg',
+  },
+  {
+    original: 'static/images/coding-924920_1920.jpg',
+    thumbnail: 'static/images/coding-924920_1920.jpg',
+  },
+  {
+    original: 'static/images/artificial-intelligence-2167835_1920.jpg',
+    thumbnail: 'static/images/artificial-intelligence-2167835_1920.jpg',
+  },
+  {
+    original: 'static/images/office-1209640_1920.jpg',
+    thumbnail: 'static/images/office-1209640_1920.jpg',
+  },
+  {
+    original: 'static/images/programming-593312_1920.jpg',
+    thumbnail: 'static/images/programming-593312_1920.jpg',
+  },
+];
 
-const Gallery = ({ classes }) => (
-  <div>
-    {generate(
-      <span>
-        <img
-          className={classes.image}
-          src="https://via.placeholder.com/150"
-          alt="Course image"
-        />
-      </span>,
-      3,
-    )}
-  </div>
-);
+const Gallery = () => <ImageGallery items={images} />;
 
-Gallery.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(Gallery);
+export default Gallery;

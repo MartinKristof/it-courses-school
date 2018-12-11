@@ -27,6 +27,8 @@ const styles = (theme) => ({
     flexGrow: 1,
   },
   grow: {
+    display: 'flex',
+    alignItems: 'center',
     flexGrow: 1,
   },
   menuButton: {
@@ -130,8 +132,14 @@ class Navigation extends React.Component {
               className={classes.grow}
               noWrap
             >
+              <img
+                width={50}
+                height={50}
+                src="/static/images/logo.svg"
+                alt="Logo"
+              />
               <Link href="/" prefetch>
-                <a className={classes.link}>IT Kurzy</a>
+                <a className={classes.link}>{'<IT> Kurzy = Pišinger'}</a>
               </Link>
             </Typography>
           </Toolbar>

@@ -15,8 +15,17 @@ import Checkbox from '@material-ui/core/Checkbox/Checkbox';
 import { withRouter } from 'next/router';
 import { formStyles } from '../src/styles/shared';
 import Head from 'next/head';
+import { redirectIfAuthenticated } from '../src/services/auth/auth';
 
 class SignIn extends React.Component {
+  static getInitialProps(context) {
+    if (redirectIfAuthenticated(context)) {
+      return {};
+    }
+
+    return {};
+  }
+
   handleSubmit = (event) => {
     event.preventDefault();
     const { showNotifier, router, handleLogin } = this.props;

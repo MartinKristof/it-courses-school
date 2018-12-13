@@ -19,10 +19,17 @@ import { generate } from '../src/services/ElementsGenerator';
 import Layout from '../src/layout/Layout';
 import Head from 'next/head';
 import Chip from '@material-ui/core/Chip/Chip';
+import Ratings from '../src/components/Ratings';
+import TextField from '@material-ui/core/TextField';
+import Divider from '@material-ui/core/Divider';
 
 const styles = (theme) => ({
   ratingBlock: {
     marginTop: theme.spacing.unit * 3,
+  },
+  ratingForm: {
+    marginTop: theme.spacing.unit * 3,
+    marginBottom: theme.spacing.unit * 3,
   },
   rating: {
     marginBottom: theme.spacing.unit * 3,
@@ -123,7 +130,7 @@ class Detail extends React.Component {
           </Hero>
           <Layout>
             <Grid container spacing={40}>
-              <Grid item md={8}>
+              <Grid item sm={6} lg={8}>
                 <Typography component="h2" variant="h3" gutterBottom>
                   O tomto kurzu
                 </Typography>
@@ -174,7 +181,7 @@ class Detail extends React.Component {
                 </Typography>
               </Grid>
 
-              <Grid item md={4}>
+              <Grid item sm={6} lg={4}>
                 <div>
                   <Typography component="h2" variant="h3" gutterBottom>
                     Souhrn
@@ -200,13 +207,31 @@ class Detail extends React.Component {
                       <Typography component="h2" variant="h3" gutterBottom>
                         Hodnocení
                       </Typography>
-                      <div className={classes.rating}>
-                        <Rating readonly={!isLogged} />
-                      </div>
-                      <Typography component="p" paragraph>
-                        Mauris suscipit, ligula sit amet pharetra semper, nibh
-                        ante cursus purus, vel sagittis velit mauris vel metus.
-                      </Typography>
+                      {isLogged && (
+                        <Fragment>
+                          <div className={classes.ratingForm}>
+                            <form>
+                              <div className={classes.rating}>
+                                <Rating />
+                              </div>
+                              <div className={classes.rating}>
+                                <TextField
+                                  multiline
+                                  id="ratingText"
+                                  rows={2}
+                                  fullWidth
+                                  rowsMax={4}
+                                />
+                              </div>
+                              <Button type="submit" color="secondary">
+                                Odeslat
+                              </Button>
+                            </form>
+                          </div>
+                          <Divider />
+                        </Fragment>
+                      )}
+                      <Ratings />
                     </Grid>
                   </Grid>
                 </div>

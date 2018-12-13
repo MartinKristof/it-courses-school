@@ -96,7 +96,7 @@ class SignIn extends React.Component {
               </FormControl>
               <FormControlLabel
                 control={<Checkbox value="terms" color="primary" required />}
-                label="Souhlasím s obchodními podmínkami a jsem poučen ohledně ochraně osobních údajů"
+                label="Souhlasím s obchodními podmínkami"
               />
               <Button
                 type="submit"

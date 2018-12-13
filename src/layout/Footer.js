@@ -21,7 +21,8 @@ const Footer = ({ classes }) => (
       color="textSecondary"
       component="p"
     >
-      @2018
+      pisinger@it-kurzy.cz <br />
+      ©2018
     </Typography>
   </footer>
 );

@@ -3,7 +3,6 @@
 ## Co se naučíte
 * Získáte klíčové Java dovednosti potřebné pro ucházení o pozici Java developera.
 * Budete schopni předvést vaše pochopení Javy potenciálním budoucím zaměstnavatelům.
-* Budete schopni předvést vaše pochopení Javy potenciálním budoucím zaměstnavatelům.
 * Nabydete nezbytné znalosti pro přechod k Java Frameworkům, Java EE, vývoji pro platformu Android a další.
 * Budete disponovat dostatečnými schopnostmi pro absolvování Oracle Java certifikace.
 * Budete profesionálem v Java 8 a Java 11

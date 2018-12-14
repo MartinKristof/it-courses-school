@@ -17,19 +17,6 @@ const styles = (theme) => ({
   },
 });
 
-const ratings = [
-  {
-    rating: 3,
-    text:
-      'Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus.',
-  },
-  {
-    rating: 2,
-    text:
-      'Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus.',
-  },
-];
-
 const RatingItem = ({ rating, text, classes }) => (
   <GridListTile>
     <div className={classes.item}>
@@ -56,11 +43,7 @@ const Ratings = ({ classes, ratingItems }) => (
 );
 
 Ratings.propTypes = {
-  ratingItems: PropTypes.array,
-};
-
-Ratings.defaultProps = {
-  ratingItems: ratings,
+  ratingItems: PropTypes.array.isRequired,
 };
 
 export default withStyles(styles)(Ratings);

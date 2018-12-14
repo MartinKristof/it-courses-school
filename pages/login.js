@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import { Component, Fragment } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline/CssBaseline';
 import Paper from '@material-ui/core/Paper/Paper';
 import Avatar from '@material-ui/core/Avatar/Avatar';
@@ -16,7 +16,7 @@ import { formStyles } from '../src/styles/shared';
 import Head from 'next/head';
 import { redirectIfAuthenticated } from '../src/services/auth/auth';
 
-class Login extends React.Component {
+class Login extends Component {
   static getInitialProps(context) {
     if (redirectIfAuthenticated(context)) {
       return {};

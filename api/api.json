@@ -1,0 +1,339 @@
+{
+  "courses-recommended": [
+    {
+      "id": 1,
+      "title": "Java - Od začátečníka k expertovi",
+      "perex": "Naučte se programovat v Javě prostřednictvím tohoto kurzu. Získejte klíčové Java znalosti a dovednosti a připravte se na Oracle Java certifikaci.",
+      "favorite": false,
+      "image": {
+        "path": "/static/images/java.jpg",
+        "title": "Java"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Python - Kurz pro úplné začátečníky",
+      "perex": "Python kurz i pro ty z vás, kteří ještě vůbec neměli tu čest s Pythonem. Naučte se to podstatné z jazyka Python. A to rychle a efektivně.",
+      "favorite": false,
+      "image": {
+        "path": "/static/images/python.jpg",
+        "title": "Python"
+      }
+    }
+  ],
+  "courses-favorite": [
+    {
+      "id": 1,
+      "title": "Bash skriptování a Shell programování",
+      "perex": "Naučte se bash programování pro Linux, Unix či Mac. Programujte bash skripty jako profesionál a naučte se díky nim řešit problémy.",
+      "favorite": true,
+      "image": {
+        "path": "/static/images/bash.jpg",
+        "title": "Bash"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Python - Kurz pro úplné začátečníky",
+      "perex": "Python kurz i pro ty z vás, kteří ještě vůbec neměli tu čest s Pythonem. Naučte se to podstatné z jazyka Python. A to rychle a efektivně.",
+      "favorite": true,
+      "image": {
+        "path": "/static/images/python.jpg",
+        "title": "Python"
+      }
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "title": "Java - Od začátečníka k expertovi",
+      "perex": "Naučte se programovat v Javě prostřednictvím tohoto kurzu. Získejte klíčové Java znalosti a dovednosti a připravte se na Oracle Java certifikaci.",
+      "favorite": false,
+      "image": {
+        "path": "/static/images/java.jpg",
+        "title": "Java"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Python - Kurz pro úplné začátečníky",
+      "perex": "Python kurz i pro ty z vás, kteří ještě vůbec neměli tu čest s Pythonem. Naučte se to podstatné z jazyka Python. A to rychle a efektivně.",
+      "favorite": true,
+      "image": {
+        "path": "/static/images/python.jpg",
+        "title": "Python"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Bash skriptování a Shell programování",
+      "perex": "Naučte se bash programování pro Linux, Unix či Mac. Programujte bash skripty jako profesionál a naučte se díky nim řešit problémy.",
+      "favorite": true,
+      "image": {
+        "path": "/static/images/bash.jpg",
+        "title": "Bash"
+      }
+    }
+  ],
+  "course": [
+    {
+      "id": 1,
+      "title": "Java - Od začátečníka k expertovi",
+      "description": "Naučte se programovat v Javě prostřednictvím tohoto kurzu. Získejte klíčové Java znalosti a dovednosti a připravte se na Oracle Java certifikaci.",
+      "price": 1299,
+      "duration": {
+        "value": "3 hodiny",
+        "note": "Přestávka v polovině kurzu"
+      },
+      "images": [
+        {
+          "original": "static/images/classroom-2093743_1920.jpg",
+          "thumbnail": "static/images/thumbs/classroom-2093743_1920.jpg",
+          "originalAlt": "Course",
+          "thumbnailAlt": "Course"
+        },
+        {
+          "original": "static/images/classroom-2093744_1920.jpg",
+          "thumbnail": "static/images/thumbs/classroom-2093744_1920.jpg",
+          "originalAlt": "Course",
+          "thumbnailAlt": "Course"
+        },
+        {
+          "original": "static/images/coding-924920_1920.jpg",
+          "thumbnail": "static/images/thumbs/coding-924920_1920.jpg",
+          "originalAlt": "Course",
+          "thumbnailAlt": "Course"
+        },
+        {
+          "original": "static/images/artificial-intelligence-2167835_1920.jpg",
+          "thumbnail": "static/images/thumbs/artificial-intelligence-2167835_1920.jpg",
+          "originalAlt": "Course",
+          "thumbnailAlt": "Course"
+        },
+        {
+          "original": "static/images/office-1209640_1920.jpg",
+          "thumbnail": "static/images/thumbs/office-1209640_1920.jpg",
+          "originalAlt": "Course",
+          "thumbnailAlt": "Course"
+        },
+        {
+          "original": "static/images/programming-593312_1920.jpg",
+          "thumbnail": "static/images/thumbs/programming-593312_1920.jpg",
+          "originalAlt": "Course",
+          "thumbnailAlt": "Course"
+        }
+      ],
+      "lector": {
+        "name": "Petr Pišinger",
+        "avatar": {
+          "path": "/static/images/lector.jpg",
+          "title": "Lector"
+        }
+      },
+      "favorite": false,
+      "tags": [
+        {
+          "label": "Java"
+        },
+        {
+          "label": "Back-end"
+        }
+      ],
+      "summary": [
+        {
+          "title": "Pro začátečníky i pokročilé",
+          "note": ""
+        },
+        {
+          "title": "Java 8",
+          "note": ""
+        }
+      ],
+      "content": "<h2>Co se naučíte</h2>\n\n<ul>\n<li>Získáte klíčové Java dovednosti potřebné pro ucházení o pozici Java developera.</li>\n\n<li>Budete schopni předvést vaše pochopení Javy potenciálním budoucím zaměstnavatelům.</li>\n\n<li>Nabydete nezbytné znalosti pro přechod k Java Frameworkům, Java EE, vývoji pro platformu Android a další.</li>\n\n<li>Budete disponovat dostatečnými schopnostmi pro absolvování Oracle Java certifikace.</li>\n\n<li>Budete profesionálem v Java 8 a Java 11</li>\n</ul>\n\n<h2>Obsah kurzu</h2>\n\n<ol>\n<li>Úvod do kurzu</li>\n\n<li>Konfigurace a první kroky</li>\n\n<li>Proměnné, datové typy a operátory</li>\n\n<li>Výrazy, příkazy, bloky kódu, metody a další</li>\n\n<li>Příkazu pro řízení běhu kódu</li>\n\n<li>OOP - Část 1 - Třídy, Konstruktory a dědění</li>\n\n<li>OOP - Část 2 - Skládání, Zapouzdření a polymorfismus</li>\n\n<li>Pole, Java Seznamy aj.</li>\n\n<li>Abstraktní třídy</li>\n\n<li>Jmené konvence, balíčky, klíčová slova</li>\n\n<li>Kolekce</li>\n\n<li>Lambda výrazy</li>\n\n<li>Regulární výrazy</li>\n\n<li>Debugging a Unit testing</li>\n\n<li>Databáze</li>\n</ol>\n\n<h2>Požadavky</h2>\n\n<ul>\n<li>Počítač s Windows, Mac nebo Linux, na který nainstalujete všechen software a nástroje potřebné pro vývoj vašich aplikací.</li>\n\n<li>Vysoké pracovní nadšení, ochotu se učit nové věci a zapálení pro programování.</li>\n</ul>\n\n<h2>O kurzu</h2>\n\n<p>Právě jste narazili na ten nejkomplexnější, nekompromisní a velmi obsáhlý kurz Java programování. Rozviňte Vaše dovednosti a staňte se Java profesionálem, o kterého se budou zaměstnavatelé prát.<br/><br/> Naučte se od základů vyvíjet efektivní Java kód. Získejte zázemí pro profesní postup či potřebný rozhled pro absolvování Oracle Java certifikací.<br/> Kurzem Vás provede fundovaný lektor s letitou zkušeností v programování a vývoji, Petr Pišinger, který se zasloužil o úspěch nemalého počtu svých studentů.</p>",
+      "ratings": [
+        {
+          "rating": 4,
+          "text": "Tento kurz rozhodně doporučuji. Na univerzitě jsem měl dva semestry Javy, ale tento kurz mi dal daleko víc."
+        },
+        {
+          "rating": 5,
+          "text": "Byl jsem úplný začátečník, když jsem s tímto kurzem začínal. Po jeho absolvování jsem sám schopen napsat jednoduché programy, ale hlavně porozumět kódu, který napsal někdo jiný. Doporučuji."
+        },
+        {
+          "rating": 3,
+          "text": "V kurzu jsou ukazovány konkrétní příklady použití Java kódu, z čehož se podle mého názoru dá naučit nejlépe. Některé sekce ale instruktor prochází až příliš rychle. Nicméně celkově hodnotím pozitivně."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Python - Kurz pro úplné začátečníky",
+      "description": "Python kurz i pro ty z vás, kteří ještě vůbec neměli tu čest s Pythonem. Naučte se to podstatné z jazyka Python. A to rychle a efektivně.",
+      "price": 1399,
+      "duration": {
+        "value": "4 hodiny",
+        "note": "Přestávka v polovině kurzu"
+      },
+      "images": [
+        {
+          "original": "static/images/office-1209640_1920.jpg",
+          "thumbnail": "static/images/thumbs/office-1209640_1920.jpg",
+          "originalAlt": "Course",
+          "thumbnailAlt": "Course"
+        },
+        {
+          "original": "static/images/classroom-2093743_1920.jpg",
+          "thumbnail": "static/images/thumbs/classroom-2093743_1920.jpg",
+          "originalAlt": "Course",
+          "thumbnailAlt": "Course"
+        },
+        {
+          "original": "static/images/classroom-2093744_1920.jpg",
+          "thumbnail": "static/images/thumbs/classroom-2093744_1920.jpg",
+          "originalAlt": "Course",
+          "thumbnailAlt": "Course"
+        },
+        {
+          "original": "static/images/coding-924920_1920.jpg",
+          "thumbnail": "static/images/thumbs/coding-924920_1920.jpg",
+          "originalAlt": "Course",
+          "thumbnailAlt": "Course"
+        },
+        {
+          "original": "static/images/artificial-intelligence-2167835_1920.jpg",
+          "thumbnail": "static/images/thumbs/artificial-intelligence-2167835_1920.jpg",
+          "originalAlt": "Course",
+          "thumbnailAlt": "Course"
+        },
+        {
+          "original": "static/images/programming-593312_1920.jpg",
+          "thumbnail": "static/images/thumbs/programming-593312_1920.jpg",
+          "originalAlt": "Course",
+          "thumbnailAlt": "Course"
+        }
+      ],
+      "lector": {
+        "name": "Petr Pišinger",
+        "avatar": {
+          "path": "/static/images/lector.jpg",
+          "title": "Lector"
+        }
+      },
+      "favorite": false,
+      "tags": [
+        {
+          "label": "Python"
+        },
+        {
+          "label": "Back-end"
+        }
+      ],
+      "summary": [
+        {
+          "title": "Pro začátečníky",
+          "note": ""
+        },
+        {
+          "title": "Python 2 i 3",
+          "note": ""
+        }
+      ],
+      "content": "<h2>Co se naučíte</h2>\n\n<ul>\n<li>Porozumíte základům programovacího jazyka Python</li>\n\n<li>Získáte potřebné znalosti pro posun do různých specializovaných oblastí jako jsou Strojové učení nebo Data Science</li>\n\n<li>Budete schopni sami vyvíjet programy jak v Python 2, tak Python 3</li>\n\n<li>Objektové programování v Pythonu pro vás nebude ničím neznámým</li>\n\n<li>Doplníte si programovací dovednosti v Pythonu do Vašeho životopisu a budete se moci s jistotou ucházet o pozici Python vývojáře</li>\n</ul>\n\n<h2>Obsah kurzu</h2>\n\n<ol>\n<li>Úvod do kurzu</li>\n\n<li>Nastavení a příprava prostředí pro Python - Windows, Mac i Linux</li>\n\n<li>Základní kameny Pythonu</li>\n\n<li>Řízení běhu Python programu</li>\n\n<li>Seznamy, rozsahy a uspořádané n-tice v Pythonu</li>\n\n<li>Python slovníky a sety</li>\n\n<li>Práce se vstupem a výstupem</li>\n\n<li>Moduly a funkce</li>\n\n<li>Objektově orientované programování v Pythonu</li>\n\n<li>Práce s databázemi</li>\n\n<li>Generátory, komprehenze a lambda výrazy</li>\n\n<li>Balíčky</li>\n</ol>\n\n<h2>Požadavky</h2>\n\n<ul>\n<li>Počítač s Windows, Mac nebo Linux. Veškerý potřebný software je zdarma k dostání.</li>\n\n<li>Nadšení pro novou věc, otevřená mysl a ochota se učit.</li>\n</ul>\n\n<h2>O kurzu</h2>\n\n<p>Ať již chcete nabrat zkušenosti pro Vaši první Python programovací pracovní příležitost, postoupit v kariéře někam výše nebo začít poznávat oblasti jako jsou Strojové učení, Data Science, Django nebo další, tento kurz je právě pro vás.<br/><br/> Kurz je zaměřen jak pro úplné začátečníky, tak pro zkušené vývojáře, kteří si chtějí osvěžit své znalosti. Přidejte se k množství programátorů vyvíjejích ve stále populářnějším jazyce Python. <br/> Pro řadu produktů celosvětových gigantů, jako například pro Google, je Python nezbytností, bez které by jejich produkty nebyli tím, čím jsou.</p>",
+      "ratings": [
+        {
+          "rating": 4,
+          "text": "Za mě, jakožto úplného programovací nováčka, naprostá spokojenost s kurzem. Instruktor se maximálně snaží přednést probíraná témata jasně a srozumitelně a doprovází je příklady z reálného života."
+        },
+        {
+          "rating": 3,
+          "text": "Obsahově průměrný Python kurz. Instruktor nicméně o Pythonu evidentně něco ví a je schopen zodpovědět i složitější dotazy."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Bash skriptování a Shell programování",
+      "description": "Naučte se bash programování pro Linux, Unix či Mac. Programujte bash skripty jako profesionál a naučte se díky nim řešit problémy.",
+      "price": 1199,
+      "duration": {
+        "value": "3 hodiny",
+        "note": "Přestávka v polovině kurzu"
+      },
+      "images": [
+        {
+          "original": "static/images/coding-924920_1920.jpg",
+          "thumbnail": "static/images/thumbs/coding-924920_1920.jpg",
+          "originalAlt": "Course",
+          "thumbnailAlt": "Course"
+        },
+        {
+          "original": "static/images/classroom-2093743_1920.jpg",
+          "thumbnail": "static/images/thumbs/classroom-2093743_1920.jpg",
+          "originalAlt": "Course",
+          "thumbnailAlt": "Course"
+        },
+        {
+          "original": "static/images/classroom-2093744_1920.jpg",
+          "thumbnail": "static/images/thumbs/classroom-2093744_1920.jpg",
+          "originalAlt": "Course",
+          "thumbnailAlt": "Course"
+        },
+        {
+          "original": "static/images/artificial-intelligence-2167835_1920.jpg",
+          "thumbnail": "static/images/thumbs/artificial-intelligence-2167835_1920.jpg",
+          "originalAlt": "Course",
+          "thumbnailAlt": "Course"
+        },
+        {
+          "original": "static/images/office-1209640_1920.jpg",
+          "thumbnail": "static/images/thumbs/office-1209640_1920.jpg",
+          "originalAlt": "Course",
+          "thumbnailAlt": "Course"
+        },
+        {
+          "original": "static/images/programming-593312_1920.jpg",
+          "thumbnail": "static/images/thumbs/programming-593312_1920.jpg",
+          "originalAlt": "Course",
+          "thumbnailAlt": "Course"
+        }
+      ],
+      "lector": {
+        "name": "Petr Pišinger",
+        "avatar": {
+          "path": "/static/images/lector.jpg",
+          "title": "Lector"
+        }
+      },
+      "favorite": false,
+      "tags": [
+        {
+          "label": "Bash"
+        },
+        {
+          "label": "Shell"
+        }
+      ],
+      "summary": [
+        {
+          "title": "Pro začátečníky",
+          "note": ""
+        },
+        {
+          "title": "Unix i Windows",
+          "note": ""
+        }
+      ],
+      "content": "<h2>Co se naučíte</h2>\n\n<ul>\n<li>Zvládnete tvořit shellové skripty pro použití na Linuxu, Mac či dalších Unixových distribucích</li>\n\n<li>Bude schopni psát komplexní skripty využívající pokročilých nástrojů v bash</li>\n\n<li>Naučíte se automatizovat jinak repetitivní úkony v shellu</li>\n</ul>\n\n<h2>Obsah kurzu</h2>\n\n<ol>\n<li>Úvod do kurzu</li>\n\n<li>Shell skriptování rychlý přehled</li>\n\n<li>Návratové hodnoty a exit statusy</li>\n\n<li>Shellové funkce</li>\n\n<li>Expanzní výrazy</li>\n\n<li>Case příkaz a logika</li>\n\n<li>Logování</li>\n\n<li>While smyčky</li>\n\n<li>Debugování bash programů</li>\n</ol>\n\n<h2>Požadavky</h2>\n\n<ul>\n<li>Základní znalosti práce v shellu jsou užitečné, ale ne nezbytné.</li>\n</ul>\n\n<h2>O kurzu</h2>\n\n<p>Staňte se mistry v bash skriptování. Naučte se efektivní bash programování a zautomatizujte jinak repetitivní úkony. Pokud se pohybujete v prostředí shellu, tento kurz Vám nabídne nástroje, které změní způsob, jakým shell používáte.</p>",
+      "ratings": [
+        {
+          "rating": 4,
+          "text": "Dobrý kurz pro začátečníky. Poskytuje solidní úvod do bash a shell skriptování. Tempo kurzu je vhodně zvoleno a vyhovuje i méně zkušeným."
+        },
+        {
+          "rating": 5,
+          "text": "Skvělý kurz od zkušeného instuktora, který si připravil velmi dobrou osnovu a dokáže ji poutavě odprezentovat."
+        }
+      ]
+    }
+  ]
+}

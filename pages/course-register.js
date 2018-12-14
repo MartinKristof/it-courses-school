@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import Checkout from '../src/components/CourseRegister';
 import Head from 'next/head';
 

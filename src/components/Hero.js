@@ -9,7 +9,7 @@ const styles = (theme) => ({
   heroContent: {
     maxWidth: 300,
     [theme.breakpoints.up(theme.breakpoints.values.sm)]: {
-      maxWidth: 600,
+      maxWidth: 550,
     },
     [theme.breakpoints.up(theme.breakpoints.values.md)]: {
       maxWidth: 800,
@@ -19,6 +19,9 @@ const styles = (theme) => ({
     },
     margin: '0 auto',
     padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
+    [theme.breakpoints.down(theme.breakpoints.values.md)]: {
+      padding: `${theme.spacing.unit * 2}px 0 ${theme.spacing.unit * 6}px`,
+    },
   },
 });
 

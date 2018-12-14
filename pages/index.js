@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -8,6 +8,7 @@ import { withRouter } from 'next/router';
 import CourseCardList from '../src/components/CourseCardList';
 import Hero from '../src/components/Hero';
 import Layout from '../src/layout/Layout';
+import api from '../api/api.json';
 
 const styles = (theme) => ({
   heroButtons: {
@@ -15,7 +16,23 @@ const styles = (theme) => ({
   },
 });
 
-class Index extends React.Component {
+class Index extends Component {
+  static async getInitialProps() {
+    try {
+      const recommendedCourses = api['courses-recommended'];
+
+      return {
+        recommendedCourses,
+      };
+    } catch (exception) {
+      console.error(exception);
+
+      return {
+        recommendedCourses: [],
+      };
+    }
+  }
+
   handleChangeRoute = (route) => (event) => {
     const { router } = this.props;
 
@@ -23,7 +40,7 @@ class Index extends React.Component {
   };
 
   render() {
-    const { classes, isLogged } = this.props;
+    const { classes, isLogged, recommendedCourses } = this.props;
 
     return (
       <Fragment>
@@ -44,9 +61,11 @@ class Index extends React.Component {
               color="textSecondary"
               paragraph
             >
-              Something short and leading about the collection below—its
-              contents, the creator, etc. Make it short and sweet, but not too
-              short so folks don&apos;t simply skip over it entirely.
+              Vítejte na stránce IT Kurzy, které pro vás připravil Petr
+              Pišinger. Můžete zde nalézt nejrůznější školení programování.
+              <br />
+              {!isLogged &&
+                'Pokud máte zájem o nějaký určitý kurz, přihlaste se nebo proveďte registraci, poté se podívejte do kurzu nebo můžete stisknout tlačítko koupit.'}
             </Typography>
             {!isLogged && (
               <div className={classes.heroButtons}>
@@ -78,7 +97,7 @@ class Index extends React.Component {
           <Typography variant="h4" component="h3">
             Doporučené kurzy
           </Typography>
-          <CourseCardList isLogged={isLogged} />
+          <CourseCardList isLogged={isLogged} courses={recommendedCourses} />
         </Layout>
       </Fragment>
     );
@@ -88,6 +107,7 @@ class Index extends React.Component {
 Index.propTypes = {
   classes: PropTypes.object.isRequired,
   isLogged: PropTypes.bool.isRequired,
+  recommendedCourses: PropTypes.array.isRequired,
 };
 
 export default withStyles(styles)(withRouter(Index));

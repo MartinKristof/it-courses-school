@@ -1,27 +1,40 @@
-import React, { Fragment } from 'react';
+import { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
+import Head from 'next/head';
 import CourseCardList from '../src/components/CourseCardList';
 import Hero from '../src/components/Hero';
 import Layout from '../src/layout/Layout';
-import Head from 'next/head';
 import { redirectIfNotAuthenticated } from '../src/services/auth/auth';
+import api from '../api/api.json';
 
-class Favorites extends React.Component {
-  static getInitialProps(context) {
+class Favorites extends Component {
+  static async getInitialProps(context) {
     if (redirectIfNotAuthenticated(context)) {
       return {
         isLogged: false,
       };
     }
 
-    return {
-      isLogged: true,
-    };
+    try {
+      const favoriteCourses = api['courses-favorite'];
+
+      return {
+        isLogged: true,
+        favoriteCourses,
+      };
+    } catch (exception) {
+      console.error(exception);
+
+      return {
+        isLogged: true,
+        favoriteCourses: [],
+      };
+    }
   }
 
   render() {
-    const { isLogged } = this.props;
+    const { isLogged, favoriteCourses } = this.props;
 
     return (
       <Fragment>
@@ -50,7 +63,7 @@ class Favorites extends React.Component {
           </Hero>
         </main>
         <Layout>
-          <CourseCardList isLogged={isLogged} count={6} favorites />
+          <CourseCardList isLogged={isLogged} courses={favoriteCourses} />
         </Layout>
       </Fragment>
     );
@@ -59,6 +72,7 @@ class Favorites extends React.Component {
 
 Favorites.propTypes = {
   isLogged: PropTypes.bool.isRequired,
+  favoriteCourses: PropTypes.array.isRequired,
 };
 
 export default Favorites;

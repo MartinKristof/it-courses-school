@@ -56,8 +56,10 @@ class Breadcrumbs extends React.PureComponent {
           ...breadcrumbsItems,
           { label: 'Přihlášení na kurz', active: true, link: pathname },
         ];
-      default:
+      case '/':
         return [];
+      default:
+        return breadcrumbsItems;
     }
   };
 

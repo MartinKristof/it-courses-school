@@ -10,18 +10,12 @@ const styles = (theme) => ({
   },
 });
 
-const CourseCardList = ({ classes, isLogged, count, favorites }) => (
+const CourseCardList = ({ classes, isLogged, courses }) => (
   <div className={classes.cardGrid}>
     <Grid container spacing={40}>
-      {[...Array(count).keys()].map((card) => (
-        <Grid item key={card} sm={6} md={4} lg={3}>
-          <CourseCard
-            isLogged={isLogged}
-            image=""
-            title="Kurz"
-            favorite={favorites}
-            perex="This is a media card. You can use this section to describe the content."
-          />
+      {courses.map((course) => (
+        <Grid item key={course.id} sm={6} md={4} lg={3}>
+          <CourseCard isLogged={isLogged} {...course} />
         </Grid>
       ))}
     </Grid>
@@ -31,13 +25,7 @@ const CourseCardList = ({ classes, isLogged, count, favorites }) => (
 CourseCardList.propTypes = {
   classes: PropTypes.object.isRequired,
   isLogged: PropTypes.bool.isRequired,
-  count: PropTypes.number,
-  favorites: PropTypes.bool,
-};
-
-CourseCardList.defaultProps = {
-  count: 12,
-  favorites: false,
+  courses: PropTypes.array.isRequired,
 };
 
 export default withStyles(styles)(CourseCardList);

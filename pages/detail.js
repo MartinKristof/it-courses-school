@@ -1,11 +1,13 @@
-import React, { Fragment } from 'react';
+import { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar/Avatar';
 import Button from '@material-ui/core/Button/Button';
-import BatteryUnknownIcon from '@material-ui/icons/BatteryUnknown';
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import MoneyIcon from '@material-ui/icons/AttachMoney';
+import InfoIcon from '@material-ui/icons/Info';
 import StarIcon from '@material-ui/icons/StarRate';
 import List from '@material-ui/core/List/List';
 import ListItem from '@material-ui/core/ListItem/ListItem';
@@ -13,17 +15,44 @@ import ListItemText from '@material-ui/core/ListItemText/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon/ListItemIcon';
 import Rating from 'react-rating';
 import { withRouter } from 'next/router';
-import Hero from '../src/components/Hero';
-import Gallery from '../src/components/Gallery';
-import { generate } from '../src/services/ElementsGenerator';
-import Layout from '../src/layout/Layout';
 import Head from 'next/head';
 import Chip from '@material-ui/core/Chip/Chip';
 import Ratings from '../src/components/Ratings';
 import TextField from '@material-ui/core/TextField';
 import Divider from '@material-ui/core/Divider';
+import Hero from '../src/components/Hero';
+import Gallery from '../src/components/Gallery';
+import Layout from '../src/layout/Layout';
+import Error from './_error';
+import api from '../api/api.json';
 
 const styles = (theme) => ({
+  '@global': {
+    h2: {
+      ...theme.typography.h4,
+    },
+    p: {
+      ...theme.typography.body1,
+    },
+    ul: {
+      ...theme.typography.body1,
+      paddingLeft: 40,
+    },
+    'ul li': {
+      listStyleType: 'disclosure-closed',
+    },
+    ol: {
+      ...theme.typography.body1,
+      paddingLeft: 40,
+    },
+    'ol li': {
+      listStyleType: 'decimal',
+    },
+    li: {
+      ...theme.typography.body1,
+      display: 'list-item',
+    },
+  },
   ratingBlock: {
     marginTop: theme.spacing.unit * 3,
   },
@@ -49,19 +78,61 @@ const styles = (theme) => ({
   },
 });
 
-class Detail extends React.Component {
+class Detail extends Component {
+  static async getInitialProps({ query }) {
+    const { id } = query;
+
+    try {
+      const course = api.course[id];
+
+      return {
+        course,
+      };
+    } catch (exception) {
+      console.error(exception);
+
+      return {
+        course: null,
+      };
+    }
+  }
+
   handleRegister = () => {
-    const { router } = this.props;
+    const {
+      router,
+      course: { id },
+    } = this.props;
 
     router.push({
       pathname: '/course-register',
-      query: { name: 'kurz-java-1' },
+      query: { id },
     });
   };
 
   render() {
-    const { classes, isLogged } = this.props;
-    const title = 'Kurz v Javě';
+    const { classes, isLogged, course } = this.props;
+
+    if (!course) {
+      return <Error statusCode={404} />;
+    }
+
+    const {
+      title,
+      description,
+      images,
+      price,
+      duration: { value: durationValue, note: durationNote },
+      lector,
+      favorite,
+      tags,
+      content,
+      summary,
+      ratings,
+    } = course;
+
+    const priceLocale = `${price.toLocaleString('cs-CZ', {
+      currency: 'CZK',
+    })} Kč`;
 
     return (
       <Fragment>
@@ -78,35 +149,38 @@ class Detail extends React.Component {
               </Grid>
               <Grid item xs={12}>
                 <Typography component="h2" variant="h6" color="textSecondary">
-                  Kurz programování v Javě pro nováčky
+                  {description}
                 </Typography>
               </Grid>
               <Grid item md={6}>
-                <Gallery />
+                <Gallery images={images} />
               </Grid>
               <Grid item md={6}>
                 <Grid container spacing={40}>
                   <Grid item xs={12}>
                     <div className={classes.lectorBlock}>
                       <Avatar className={classes.avatar}>
-                        <img
-                          src="https://via.placeholder.com/150"
-                          alt="Lector"
-                        />
+                        <img src={lector.avatar.path} alt="Lector" />
                       </Avatar>
                       <Typography
                         component="h2"
                         variant="h4"
                         className={classes.lectorTitle}
                       >
-                        Petr Pišinger
+                        {lector.name}
                       </Typography>
                     </div>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography component="h3" variant="h4" color="primary">
+                      {priceLocale}
+                    </Typography>
                   </Grid>
                   {isLogged && (
                     <Grid item xs={12} sm="auto">
                       <Button variant="contained" color="secondary">
-                        <StarIcon /> Do oblíbených
+                        <StarIcon />{' '}
+                        {!favorite ? 'Do oblíbených' : 'Odebrat z oblíbených'}
                       </Button>
                     </Grid>
                   )}
@@ -121,8 +195,13 @@ class Detail extends React.Component {
                     </Button>
                   </Grid>
                   <Grid item xs={12}>
-                    <Chip label="Java" className={classes.chip} />
-                    <Chip label="Back-end" className={classes.chip} />
+                    {tags.map(({ label }, index) => (
+                      <Chip
+                        key={`tags-${index}`}
+                        label={label}
+                        className={classes.chip}
+                      />
+                    ))}
                   </Grid>
                 </Grid>
               </Grid>
@@ -130,75 +209,42 @@ class Detail extends React.Component {
           </Hero>
           <Layout>
             <Grid container spacing={40}>
-              <Grid item sm={6} lg={8}>
-                <Typography component="h2" variant="h3" gutterBottom>
-                  O tomto kurzu
-                </Typography>
-                <Typography component="p" paragraph>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                  Etiam quis quam. Nullam sit amet magna in magna gravida
-                  vehicula. Morbi imperdiet, mauris ac auctor dictum, nisl
-                  ligula egestas nulla, et sollicitudin sem purus in lacus. Nam
-                  sed tellus id magna elementum tincidunt. Praesent dapibus.
-                  Vestibulum fermentum tortor id mi. Proin mattis lacinia justo.
-                  Nulla pulvinar eleifend sem. Cras pede libero, dapibus nec,
-                  pretium sit amet, tempor quis. Vestibulum erat nulla,
-                  ullamcorper nec, rutrum non, nonummy ac, erat. Mauris dolor
-                  felis, sagittis at, luctus sed, aliquam non, tellus.
-                </Typography>
-
-                <Typography component="p" paragraph>
-                  Nam sed tellus id magna elementum tincidunt. Phasellus et
-                  lorem id felis nonummy placerat. Quis autem vel eum iure
-                  reprehenderit qui in ea voluptate velit esse quam nihil
-                  molestiae consequatur, vel illum qui dolorem eum fugiat quo
-                  voluptas nulla pariatur? Nam libero tempore, cum soluta nobis
-                  est eligendi optio cumque nihil impedit quo minus id quod
-                  maxime placeat facere possimus, omnis voluptas assumenda est,
-                  omnis dolor repellendus. Integer malesuada. Mauris metus.
-                  Nulla non lectus sed nisl molestie malesuada. Nulla non arcu
-                  lacinia neque faucibus fringilla. Nullam lectus justo,
-                  vulputate eget mollis sed, tempor sed magna. Fusce nibh.
-                  Curabitur sagittis hendrerit ante. Mauris dictum facilisis
-                  augue. Curabitur bibendum justo non orci. Integer vulputate
-                  sem a nibh rutrum consequat. Aliquam erat volutpat. Etiam
-                  commodo dui eget wisi. Nam quis nulla.
-                </Typography>
-
-                <Typography component="p" paragraph>
-                  Pellentesque sapien. Temporibus autem quibusdam et aut
-                  officiis debitis aut rerum necessitatibus saepe eveniet ut et
-                  voluptates repudiandae sint et molestiae non recusandae. Sed
-                  elit dui, pellentesque a, faucibus vel, interdum nec, diam.
-                  Proin pede metus, vulputate nec, fermentum fringilla, vehicula
-                  vitae, justo. Integer imperdiet lectus quis justo. Donec quis
-                  nibh at felis congue commodo. Etiam quis quam. In sem justo,
-                  commodo ut, suscipit at, pharetra vitae, orci. Quisque
-                  tincidunt scelerisque libero. Curabitur sagittis hendrerit
-                  ante. Sed ac dolor sit amet purus malesuada congue. Mauris
-                  suscipit, ligula sit amet pharetra semper, nibh ante cursus
-                  purus, vel sagittis velit mauris vel metus.
-                </Typography>
+              <Grid item md={6} lg={8}>
+                <div dangerouslySetInnerHTML={{ __html: content }} />
               </Grid>
 
-              <Grid item sm={6} lg={4}>
+              <Grid item md={6} lg={4}>
                 <div>
                   <Typography component="h2" variant="h3" gutterBottom>
                     Souhrn
                   </Typography>
                   <List dense={false}>
-                    {generate(
-                      <ListItem>
+                    <ListItem>
+                      <ListItemIcon>
+                        <MoneyIcon />
+                      </ListItemIcon>
+                      <ListItemText primary={priceLocale} />
+                    </ListItem>
+                    <ListItem>
+                      <ListItemIcon>
+                        <AccessTimeIcon />
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={durationValue}
+                        secondary={durationNote || null}
+                      />
+                    </ListItem>
+                    {summary.map((item, index) => (
+                      <ListItem key={`summary-${index}`}>
                         <ListItemIcon>
-                          <BatteryUnknownIcon />
+                          <InfoIcon />
                         </ListItemIcon>
                         <ListItemText
-                          primary="Single-line item"
-                          secondary={'Secondary text'}
+                          primary={item.title}
+                          secondary={item.note || null}
                         />
-                      </ListItem>,
-                      5,
-                    )}
+                      </ListItem>
+                    ))}
                   </List>
                 </div>
                 <div>
@@ -231,7 +277,7 @@ class Detail extends React.Component {
                           <Divider />
                         </Fragment>
                       )}
-                      <Ratings />
+                      {ratings && <Ratings ratingItems={ratings} />}
                     </Grid>
                   </Grid>
                 </div>
@@ -247,6 +293,7 @@ class Detail extends React.Component {
 Detail.propTypes = {
   classes: PropTypes.object.isRequired,
   isLogged: PropTypes.bool.isRequired,
+  course: PropTypes.any,
 };
 
 export default withStyles(styles)(withRouter(Detail));

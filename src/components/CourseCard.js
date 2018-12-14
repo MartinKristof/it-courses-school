@@ -28,14 +28,14 @@ const styles = (theme) => ({
   },
   title: {
     cursor: 'pointer',
+    textDecoration: 'underline',
   },
 });
 
 class CourseCard extends React.PureComponent {
   handleClick = (query) => (event) => {
-    const { router, title } = this.props;
+    const { router } = this.props;
 
-    router.push({ pathname: '/detail', query: { name: title } });
     router.push(query);
   };
 
@@ -48,20 +48,30 @@ class CourseCard extends React.PureComponent {
   };
 
   render() {
-    const { classes, isLogged, title, perex, favorite } = this.props;
+    const {
+      classes,
+      isLogged,
+      id,
+      title,
+      perex,
+      favorite,
+      image: { path, title: imageTitle },
+    } = this.props;
+
+    const linkDetail = { pathname: '/detail', query: { id } };
 
     return (
       <Card className={classes.card}>
         <CardMedia
           className={classes.cardMedia}
-          image="/static/images/rsz_coding-924920_1920.jpg"
-          title="Image title"
+          image={path}
+          title={imageTitle}
         />
         <CardContent className={classes.cardContent}>
-          <Link href={{ pathname: '/detail', query: { name: title } }} prefetch>
+          <Link href={linkDetail} prefetch>
             <Typography
               gutterBottom
-              variant="h5"
+              variant="h6"
               component="h2"
               className={classes.title}
             >
@@ -76,7 +86,7 @@ class CourseCard extends React.PureComponent {
             color="primary"
             onClick={this.handleClick({
               pathname: '/course-register',
-              query: { name: title },
+              query: { id },
             })}
           >
             Koupit
@@ -93,10 +103,7 @@ class CourseCard extends React.PureComponent {
             <Button
               size="small"
               color="secondary"
-              onClick={this.handleClick({
-                pathname: '/detail',
-                query: { name: title },
-              })}
+              onClick={this.handleClick(linkDetail)}
             >
               Podrobnosti
             </Button>
@@ -112,6 +119,10 @@ CourseCard.propTypes = {
   classes: PropTypes.object.isRequired,
   isLogged: PropTypes.bool.isRequired,
   favorite: PropTypes.bool.isRequired,
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  perex: PropTypes.string.isRequired,
+  image: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(withRouter(CourseCard));

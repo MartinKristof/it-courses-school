@@ -80,10 +80,10 @@ const styles = (theme) => ({
 
 class Detail extends Component {
   static async getInitialProps({ query }) {
-    const { id } = query;
+    let { id } = query;
 
     try {
-      const course = api.course[id];
+      const course = api.course[--id];
 
       return {
         course,
@@ -139,7 +139,7 @@ class Detail extends Component {
         <Head>
           <title>IT Kurzy - Kurz - {title}</title>
         </Head>
-        <main>
+        <div>
           <Hero>
             <Grid container spacing={40} justify="space-between">
               <Grid item xs={12}>
@@ -284,7 +284,7 @@ class Detail extends Component {
               </Grid>
             </Grid>
           </Layout>
-        </main>
+        </div>
       </Fragment>
     );
   }

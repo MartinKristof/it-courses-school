@@ -53,8 +53,6 @@ function DefaultComponent({
 }) {
   return (
     <ButtonBase
-      variant="default"
-      color="primary"
       className={className}
       tabIndex={tabIndex}
       onClick={onClick}

@@ -11,8 +11,8 @@ const styles = (theme) => ({
 });
 
 const Footer = ({ classes }) => (
-  <footer className={classes.footer}>
-    <Typography variant="h6" align="center" gutterBottom>
+  <footer className={classes.footer} role="contentinfo">
+    <Typography component="p" variant="h6" align="center" gutterBottom>
       IT Kurzy
     </Typography>
     <Typography

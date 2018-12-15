@@ -254,6 +254,10 @@
   }
 }
 
+.fullscreen .image-gallery-slides {
+  height: 100%;
+}
+
 .image-gallery-slide {
   background: #fff;
   left: 0;

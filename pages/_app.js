@@ -118,13 +118,15 @@ class MyApp extends App {
               {...this.state.notifier}
               handleClose={this.handleCloseNotifier}
             />
-            <Component
-              showNotifier={this.showNotifier}
-              handleLogin={this.handleLogin}
-              isLogged={isLogged}
-              pageContext={this.pageContext}
-              {...pageProps}
-            />
+            <main role="main">
+              <Component
+                showNotifier={this.showNotifier}
+                handleLogin={this.handleLogin}
+                isLogged={isLogged}
+                pageContext={this.pageContext}
+                {...pageProps}
+              />
+            </main>
             <Footer />
           </MuiThemeProvider>
         </JssProvider>

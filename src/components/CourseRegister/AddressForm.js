@@ -3,20 +3,20 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl/FormControl';
-import InputLabel from '@material-ui/core/InputLabel/InputLabel';
 import Select from '@material-ui/core/Select/Select';
 import MenuItem from '@material-ui/core/MenuItem/MenuItem';
+import InputLabel from '@material-ui/core/InputLabel';
+import PropTypes from 'prop-types';
 
 class AddressForm extends React.Component {
-  state = {
-    place: '',
-  };
-
   handleChange = (name) => (event) => {
-    this.setState({ [name]: event.target.value });
+    this.props.handleChange(name, event.target.value);
   };
 
   render() {
+    const { course, user, place } = this.props;
+    const { firstName, surname } = user;
+
     return (
       <Fragment>
         <Typography variant="h6" gutterBottom>
@@ -30,19 +30,23 @@ class AddressForm extends React.Component {
               id="firstName"
               name="firstName"
               label="Křestní jméno"
+              placeholder="Jan"
+              value={firstName}
+              onChange={this.handleChange('firstName')}
               fullWidth
-              autoComplete="fname"
               autoFocus
             />
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
               required
-              id="lastName"
-              name="lastName"
+              id="surname"
+              name="surname"
+              placeholder="Novák"
               label="Příjmení"
+              value={surname}
+              onChange={this.handleChange('surname')}
               fullWidth
-              autoComplete="lname"
             />
           </Grid>
           <Grid item xs={12}>
@@ -52,8 +56,8 @@ class AddressForm extends React.Component {
               id="email"
               name="email"
               label="Email"
+              placeholder="jan@novak.cz"
               fullWidth
-              autoComplete="registration email"
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -63,9 +67,12 @@ class AddressForm extends React.Component {
               id="date"
               name="date"
               label="Termín konání"
-              defaultValue="2017-05-24"
+              defaultValue={new Date().toISOString().slice(0, 10)}
               InputLabelProps={{
                 shrink: true,
+              }}
+              inputProps={{
+                step: 10,
               }}
               fullWidth
             />
@@ -74,16 +81,20 @@ class AddressForm extends React.Component {
             <FormControl required fullWidth>
               <InputLabel htmlFor="place">Místo konání</InputLabel>
               <Select
-                value={this.state.place}
+                value={place}
                 autoWidth
+                id="place"
                 onChange={this.handleChange('place')}
                 inputProps={{
                   name: 'place',
                   id: 'place',
                 }}
               >
-                <MenuItem value={1}>Adresa 1</MenuItem>
-                <MenuItem value={2}>Adresa 2</MenuItem>
+                {course.places.map(({ street, city }, index) => (
+                  <MenuItem key={`places-${index}`} value={index}>
+                    {`${street} ${city}`}
+                  </MenuItem>
+                ))}
               </Select>
             </FormControl>
           </Grid>
@@ -92,5 +103,12 @@ class AddressForm extends React.Component {
     );
   }
 }
+
+AddressForm.propTypes = {
+  course: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+  place: PropTypes.any.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
 
 export default AddressForm;

@@ -81,6 +81,16 @@
       "title": "Java - Od začátečníka k expertovi",
       "description": "Naučte se programovat v Javě prostřednictvím tohoto kurzu. Získejte klíčové Java znalosti a dovednosti a připravte se na Oracle Java certifikaci.",
       "price": 1299,
+      "places": [
+        {
+          "street": "U Potoka 13",
+          "city": "Praha"
+        },
+        {
+          "street": "Nová 3",
+          "city": "Brno"
+        }
+      ],
       "duration": {
         "value": "3 hodiny",
         "note": "Přestávka v polovině kurzu"
@@ -89,45 +99,45 @@
         {
           "original": "static/images/classroom-2093743_1920.jpg",
           "thumbnail": "static/images/thumbs/classroom-2093743_1920.jpg",
-          "originalAlt": "Course",
-          "thumbnailAlt": "Course"
+          "originalAlt": "Java - Od začátečníka k expertovi - Učebna",
+          "thumbnailAlt": "Java - Od začátečníka k expertovi - Učebna"
         },
         {
           "original": "static/images/classroom-2093744_1920.jpg",
           "thumbnail": "static/images/thumbs/classroom-2093744_1920.jpg",
-          "originalAlt": "Course",
-          "thumbnailAlt": "Course"
+          "originalAlt": "Java - Od začátečníka k expertovi - Lavice ",
+          "thumbnailAlt": "Java - Od začátečníka k expertovi - Lavice"
         },
         {
           "original": "static/images/coding-924920_1920.jpg",
           "thumbnail": "static/images/thumbs/coding-924920_1920.jpg",
-          "originalAlt": "Course",
-          "thumbnailAlt": "Course"
+          "originalAlt": "Java - Od začátečníka k expertovi - Počítač",
+          "thumbnailAlt": "Java - Od začátečníka k expertovi - Počítač"
         },
         {
           "original": "static/images/artificial-intelligence-2167835_1920.jpg",
           "thumbnail": "static/images/thumbs/artificial-intelligence-2167835_1920.jpg",
-          "originalAlt": "Course",
-          "thumbnailAlt": "Course"
+          "originalAlt": "Java - Od začátečníka k expertovi - Inteligence",
+          "thumbnailAlt": "Java - Od začátečníka k expertovi - Inteligence"
         },
         {
           "original": "static/images/office-1209640_1920.jpg",
           "thumbnail": "static/images/thumbs/office-1209640_1920.jpg",
-          "originalAlt": "Course",
-          "thumbnailAlt": "Course"
+          "originalAlt": "Java - Od začátečníka k expertovi - Kancelář",
+          "thumbnailAlt": "Java - Od začátečníka k expertovi - Kancelář"
         },
         {
           "original": "static/images/programming-593312_1920.jpg",
           "thumbnail": "static/images/thumbs/programming-593312_1920.jpg",
-          "originalAlt": "Course",
-          "thumbnailAlt": "Course"
+          "originalAlt": "Java - Od začátečníka k expertovi - Programování",
+          "thumbnailAlt": "Java - Od začátečníka k expertovi - Programování"
         }
       ],
       "lector": {
         "name": "Petr Pišinger",
         "avatar": {
           "path": "/static/images/lector.jpg",
-          "title": "Lector"
+          "title": "Lektor Petr Pišinger"
         }
       },
       "favorite": false,
@@ -170,6 +180,16 @@
       "title": "Python - Kurz pro úplné začátečníky",
       "description": "Python kurz i pro ty z vás, kteří ještě vůbec neměli tu čest s Pythonem. Naučte se to podstatné z jazyka Python. A to rychle a efektivně.",
       "price": 1399,
+      "places": [
+        {
+          "street": "U Potoka 13",
+          "city": "Praha"
+        },
+        {
+          "street": "Nová 3",
+          "city": "Brno"
+        }
+      ],
       "duration": {
         "value": "4 hodiny",
         "note": "Přestávka v polovině kurzu"
@@ -178,45 +198,27 @@
         {
           "original": "static/images/office-1209640_1920.jpg",
           "thumbnail": "static/images/thumbs/office-1209640_1920.jpg",
-          "originalAlt": "Course",
-          "thumbnailAlt": "Course"
+          "originalAlt": "Python - Kurz pro úplné začátečníky - Kancelář",
+          "thumbnailAlt": "Python - Kurz pro úplné začátečníky - Kancelář"
         },
         {
           "original": "static/images/classroom-2093743_1920.jpg",
           "thumbnail": "static/images/thumbs/classroom-2093743_1920.jpg",
-          "originalAlt": "Course",
-          "thumbnailAlt": "Course"
-        },
-        {
-          "original": "static/images/classroom-2093744_1920.jpg",
-          "thumbnail": "static/images/thumbs/classroom-2093744_1920.jpg",
-          "originalAlt": "Course",
-          "thumbnailAlt": "Course"
-        },
-        {
-          "original": "static/images/coding-924920_1920.jpg",
-          "thumbnail": "static/images/thumbs/coding-924920_1920.jpg",
-          "originalAlt": "Course",
-          "thumbnailAlt": "Course"
-        },
-        {
-          "original": "static/images/artificial-intelligence-2167835_1920.jpg",
-          "thumbnail": "static/images/thumbs/artificial-intelligence-2167835_1920.jpg",
-          "originalAlt": "Course",
-          "thumbnailAlt": "Course"
+          "originalAlt": "Python - Kurz pro úplné začátečníky - Učebna",
+          "thumbnailAlt": "Python - Kurz pro úplné začátečníky - Učebna"
         },
         {
           "original": "static/images/programming-593312_1920.jpg",
           "thumbnail": "static/images/thumbs/programming-593312_1920.jpg",
-          "originalAlt": "Course",
-          "thumbnailAlt": "Course"
+          "originalAlt": "Python - Kurz pro úplné začátečníky - Programování",
+          "thumbnailAlt": "Python - Kurz pro úplné začátečníky - Programování"
         }
       ],
       "lector": {
         "name": "Petr Pišinger",
         "avatar": {
           "path": "/static/images/lector.jpg",
-          "title": "Lector"
+          "title": "Lektor Petr Pišinger"
         }
       },
       "favorite": false,
@@ -255,6 +257,16 @@
       "title": "Bash skriptování a Shell programování",
       "description": "Naučte se bash programování pro Linux, Unix či Mac. Programujte bash skripty jako profesionál a naučte se díky nim řešit problémy.",
       "price": 1199,
+      "places": [
+        {
+          "street": "U Potoka 13",
+          "city": "Praha"
+        },
+        {
+          "street": "Nová 3",
+          "city": "Brno"
+        }
+      ],
       "duration": {
         "value": "3 hodiny",
         "note": "Přestávka v polovině kurzu"
@@ -263,45 +275,33 @@
         {
           "original": "static/images/coding-924920_1920.jpg",
           "thumbnail": "static/images/thumbs/coding-924920_1920.jpg",
-          "originalAlt": "Course",
-          "thumbnailAlt": "Course"
+          "originalAlt": "Bash skriptování a Shell programování - Kódování",
+          "thumbnailAlt": "Bash skriptování a Shell programování - Kódování"
         },
         {
           "original": "static/images/classroom-2093743_1920.jpg",
           "thumbnail": "static/images/thumbs/classroom-2093743_1920.jpg",
-          "originalAlt": "Course",
-          "thumbnailAlt": "Course"
+          "originalAlt": "Bash skriptování a Shell programování - Lavice",
+          "thumbnailAlt": "Bash skriptování a Shell programování - Lavice"
         },
         {
           "original": "static/images/classroom-2093744_1920.jpg",
           "thumbnail": "static/images/thumbs/classroom-2093744_1920.jpg",
-          "originalAlt": "Course",
-          "thumbnailAlt": "Course"
-        },
-        {
-          "original": "static/images/artificial-intelligence-2167835_1920.jpg",
-          "thumbnail": "static/images/thumbs/artificial-intelligence-2167835_1920.jpg",
-          "originalAlt": "Course",
-          "thumbnailAlt": "Course"
-        },
-        {
-          "original": "static/images/office-1209640_1920.jpg",
-          "thumbnail": "static/images/thumbs/office-1209640_1920.jpg",
-          "originalAlt": "Course",
-          "thumbnailAlt": "Course"
+          "originalAlt": "Bash skriptování a Shell programování - Učebna",
+          "thumbnailAlt": "Bash skriptování a Shell programování - Učebna"
         },
         {
           "original": "static/images/programming-593312_1920.jpg",
           "thumbnail": "static/images/thumbs/programming-593312_1920.jpg",
-          "originalAlt": "Course",
-          "thumbnailAlt": "Course"
+          "originalAlt": "Bash skriptování a Shell programování - Programování",
+          "thumbnailAlt": "Bash skriptování a Shell programování - Programování"
         }
       ],
       "lector": {
         "name": "Petr Pišinger",
         "avatar": {
           "path": "/static/images/lector.jpg",
-          "title": "Lector"
+          "title": "Lektor Petr Pišinger"
         }
       },
       "favorite": false,

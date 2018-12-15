@@ -15,6 +15,7 @@ import { withRouter } from 'next/router';
 import { formStyles } from '../src/styles/shared';
 import Head from 'next/head';
 import { redirectIfAuthenticated } from '../src/services/auth/auth';
+import RequiredInputs from '../src/components/RequiredInputs';
 
 class Login extends Component {
   static getInitialProps(context) {
@@ -30,7 +31,7 @@ class Login extends Component {
     const { showNotifier, router, handleLogin } = this.props;
 
     handleLogin();
-    showNotifier('Přihlášení proběhlo v porřádku.', 'success');
+    showNotifier('Přihlášení proběhlo v pořádku', 'success');
 
     router.push('/');
   };
@@ -43,7 +44,7 @@ class Login extends Component {
         <Head>
           <title>IT Kurzy - Přihlášení</title>
         </Head>
-        <main className={classes.main}>
+        <div className={classes.main}>
           <CssBaseline />
           <Paper className={classes.paper}>
             <Avatar className={classes.avatar}>
@@ -59,6 +60,7 @@ class Login extends Component {
                   id="email"
                   name="email"
                   type="email"
+                  placeholder="jan@novak.cz"
                   autoComplete="email"
                   autoFocus
                 />
@@ -80,6 +82,7 @@ class Login extends Component {
                   </Link>
                 </Typography>
               </FormControl>
+              <RequiredInputs />
               <Button
                 type="submit"
                 fullWidth
@@ -91,7 +94,7 @@ class Login extends Component {
               </Button>
             </form>
           </Paper>
-        </main>
+        </div>
       </Fragment>
     );
   }

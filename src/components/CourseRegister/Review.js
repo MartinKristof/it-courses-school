@@ -7,16 +7,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
 
-const products = [
-  { name: 'Kurz 1', desc: 'Pro začátečníky', price: '770, 00 Kč' },
-];
-
-const payments = [
-  { name: 'Vlastník karty', detail: 'Mr John Smith' },
-  { name: 'Číslo karty', detail: 'xxxx-xxxx-xxxx-1234' },
-  { name: 'Datum expirace', detail: '04/2024' },
-];
-
 const styles = (theme) => ({
   listItem: {
     padding: `${theme.spacing.unit}px 0`,
@@ -29,52 +19,49 @@ const styles = (theme) => ({
   },
 });
 
-const Review = (props) => {
-  const { classes } = props;
-  return (
-    <Fragment>
-      <Typography variant="h6" gutterBottom>
-        Souhrn
-      </Typography>
-      <List disablePadding>
-        {products.map((product) => (
-          <ListItem className={classes.listItem} key={product.name}>
-            <ListItemText primary={product.name} secondary={product.desc} />
-            <Typography variant="body2">{product.price}</Typography>
-          </ListItem>
-        ))}
-        <ListItem className={classes.listItem}>
-          <ListItemText primary="Celkem" />
-          <Typography variant="subtitle1" className={classes.total}>
-            770,00 Kč
-          </Typography>
-        </ListItem>
-      </List>
-      <Grid container spacing={16}>
-        <Grid item container direction="column" xs={12} sm={6}>
-          <Typography variant="h6" gutterBottom className={classes.title}>
-            Platba
-          </Typography>
-          <Grid container>
-            {payments.map((payment) => (
-              <Fragment key={payment.name}>
-                <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.name}</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.detail}</Typography>
-                </Grid>
-              </Fragment>
-            ))}
-          </Grid>
+const Review = ({ classes, course, payments }) => (
+  <Fragment>
+    <Typography variant="h6" gutterBottom>
+      Souhrn
+    </Typography>
+    <List disablePadding>
+      <ListItem className={classes.listItem}>
+        <ListItemText primary={course.title} />
+        <Typography variant="body2">{course.price}</Typography>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <ListItemText primary="Celkem" />
+        <Typography variant="subtitle1" className={classes.total}>
+          {course.price}
+        </Typography>
+      </ListItem>
+    </List>
+    <Grid container spacing={16}>
+      <Grid item container direction="column" xs={12} sm={6}>
+        <Typography variant="h6" gutterBottom className={classes.title}>
+          Platba
+        </Typography>
+        <Grid container>
+          {payments.map((payment, index) => (
+            <Fragment key={`${payment.name}-${index}`}>
+              <Grid item xs={6}>
+                <Typography gutterBottom>{payment.name}</Typography>
+              </Grid>
+              <Grid item xs={6}>
+                <Typography gutterBottom>{payment.detail}</Typography>
+              </Grid>
+            </Fragment>
+          ))}
         </Grid>
       </Grid>
-    </Fragment>
-  );
-};
+    </Grid>
+  </Fragment>
+);
 
 Review.propTypes = {
   classes: PropTypes.object.isRequired,
+  course: PropTypes.object.isRequired,
+  payments: PropTypes.array.isRequired,
 };
 
 export default withStyles(styles)(Review);

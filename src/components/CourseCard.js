@@ -72,7 +72,7 @@ class CourseCard extends React.PureComponent {
             <Typography
               gutterBottom
               variant="h6"
-              component="h2"
+              component="h3"
               className={classes.title}
             >
               {title}

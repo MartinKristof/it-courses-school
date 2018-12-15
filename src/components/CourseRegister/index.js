@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,6 +12,7 @@ import Link from 'next/link';
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
+import RequiredInputs from '../RequiredInputs';
 
 const styles = (theme) => ({
   layout: {
@@ -41,6 +42,9 @@ const styles = (theme) => ({
     display: 'flex',
     justifyContent: 'flex-end',
   },
+  required: {
+    marginTop: 20,
+  },
   button: {
     marginTop: theme.spacing.unit * 3,
     marginLeft: theme.spacing.unit,
@@ -52,22 +56,20 @@ const styles = (theme) => ({
 
 const steps = ['Vaše údaje', 'Platební údaje', 'Souhrn'];
 
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return <AddressForm />;
-    case 1:
-      return <PaymentForm />;
-    case 2:
-      return <Review />;
-    default:
-      throw new Error('Unknown step');
-  }
-}
+const paymentsFields = [
+  { name: 'Vlastník karty', detail: '' },
+  { name: 'Číslo karty', detail: '' },
+  { name: 'Datum expirace', detail: '' },
+];
 
-class Checkout extends React.Component {
+class Checkout extends PureComponent {
   state = {
+    firstName: '',
+    surname: '',
     activeStep: 0,
+    place: 0,
+    cardNumber: '',
+    ccv: '',
   };
 
   handleNext = (event) => {
@@ -84,14 +86,58 @@ class Checkout extends React.Component {
     }));
   };
 
+  handleChange = (name, value) => {
+    this.setState({ [name]: value });
+  };
+
+  getStepContent = (step) => {
+    const { firstName, surname, place, cardNumber, ccv } = this.state;
+    const { course } = this.props;
+
+    const payments = [
+      ...paymentsFields,
+      ...(paymentsFields[0].detail = `${firstName} ${surname}`),
+      ...(paymentsFields[1].detail = cardNumber),
+      ...(paymentsFields[2].detail = ccv),
+    ];
+
+    switch (step) {
+      case 0:
+        return (
+          <AddressForm
+            course={course}
+            user={{ firstName, surname }}
+            place={place}
+            handleChange={this.handleChange}
+          />
+        );
+      case 1:
+        return (
+          <PaymentForm
+            cardNumber={cardNumber}
+            ccv={ccv}
+            handleChange={this.handleChange}
+          />
+        );
+      case 2:
+        return <Review course={course} payments={payments} />;
+      default:
+        throw new Error('Unknown step');
+    }
+  };
+
   render() {
     const { classes } = this.props;
     const { activeStep } = this.state;
 
+    const orderId = Math.random()
+      .toString(36)
+      .substring(7);
+
     return (
       <Fragment>
         <CssBaseline />
-        <main className={classes.layout}>
+        <div className={classes.layout}>
           <Paper className={classes.paper}>
             <Typography component="h1" variant="h4" align="center">
               Přihlášení na kurz
@@ -105,11 +151,11 @@ class Checkout extends React.Component {
             </Stepper>
             {activeStep === steps.length ? (
               <Fragment>
-                <Typography variant="h5" gutterBottom>
+                <Typography variant="h5" component="h3" gutterBottom>
                   Děkujeme za objednávku
                 </Typography>
                 <Typography variant="subtitle1">
-                  Číslo vaší objednávky je HKER-838443. Emailem Vám zašleme
+                  Číslo vaší objednávky je {orderId}. Emailem Vám zašleme
                   potvrzení objednávky s dalšími informacemi k absolvování
                   kurzu.
                 </Typography>
@@ -121,7 +167,10 @@ class Checkout extends React.Component {
               </Fragment>
             ) : (
               <form onSubmit={this.handleNext}>
-                {getStepContent(activeStep)}
+                {this.getStepContent(activeStep)}
+                <div className={classes.required}>
+                  <RequiredInputs />
+                </div>
                 <div className={classes.buttons}>
                   {activeStep !== 0 && (
                     <Button
@@ -143,7 +192,7 @@ class Checkout extends React.Component {
               </form>
             )}
           </Paper>
-        </main>
+        </div>
       </Fragment>
     );
   }
@@ -151,6 +200,7 @@ class Checkout extends React.Component {
 
 Checkout.propTypes = {
   classes: PropTypes.object.isRequired,
+  course: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Checkout);

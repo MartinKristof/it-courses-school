@@ -15,9 +15,11 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import AppBar from '@material-ui/core/AppBar/AppBar';
 import Link from 'next/link';
+import { withRouter } from 'next/router';
 import IconButton from '@material-ui/core/IconButton/IconButton';
 import Typography from '@material-ui/core/Typography/Typography';
 import Toolbar from '@material-ui/core/Toolbar/Toolbar';
+import Grid from '@material-ui/core/Grid';
 
 const styles = (theme) => ({
   list: {
@@ -25,6 +27,16 @@ const styles = (theme) => ({
   },
   root: {
     flexGrow: 1,
+  },
+  project: {
+    textAlign: 'right',
+    color: theme.palette.primary.contrastText,
+    marginLeft: 20,
+    marginRight: 20,
+    fontSize: 15,
+    [theme.breakpoints.up(theme.breakpoints.values.md)]: {
+      fontSize: 20,
+    },
   },
   grow: {
     display: 'flex',
@@ -42,6 +54,11 @@ const styles = (theme) => ({
 });
 
 class Navigation extends React.Component {
+  ROUTE_COURSES = '/courses';
+  ROUTE_FAVORITES = '/favorites';
+  ROUTE_LOGIN = '/login';
+  ROUTE_SIGNIN = '/signin';
+
   state = {
     left: false,
   };
@@ -57,13 +74,17 @@ class Navigation extends React.Component {
   };
 
   render() {
-    const { classes, isLogged } = this.props;
+    const { classes, isLogged, router } = this.props;
 
     const sideList = (
       <div className={classes.list}>
-        <List>
-          <Link href="/courses" prefetch>
-            <ListItem button>
+        <List component="nav" role="navigation" aria-label="Main navigation">
+          <Link href={this.ROUTE_COURSES} prefetch>
+            <ListItem
+              button
+              selected={router.route === this.ROUTE_COURSES}
+              tabIndex={1}
+            >
               <ListItemIcon>
                 <LibraryBooksIcon />
               </ListItemIcon>
@@ -71,8 +92,8 @@ class Navigation extends React.Component {
             </ListItem>
           </Link>
           {isLogged && (
-            <Link href="/favorites" prefetch>
-              <ListItem button>
+            <Link href={this.ROUTE_FAVORITES} prefetch>
+              <ListItem button selected={router.route === this.ROUTE_FAVORITES}>
                 <ListItemIcon>
                   <StarIcon />
                 </ListItemIcon>
@@ -92,16 +113,16 @@ class Navigation extends React.Component {
             </ListItem>
           ) : (
             <Fragment>
-              <Link href="/login" prefetch>
-                <ListItem button>
+              <Link href={this.ROUTE_LOGIN} prefetch>
+                <ListItem button selected={router.route === this.ROUTE_LOGIN}>
                   <ListItemIcon>
                     <AccountCircleIcon />
                   </ListItemIcon>
                   <ListItemText primary="Přihlásit" />
                 </ListItem>
               </Link>
-              <Link href="/signin" prefetch>
-                <ListItem button>
+              <Link href={this.ROUTE_SIGNIN} prefetch>
+                <ListItem button selected={router.route === this.ROUTE_SIGNIN}>
                   <ListItemIcon>
                     <PersonAddIcon />
                   </ListItemIcon>
@@ -115,50 +136,57 @@ class Navigation extends React.Component {
     );
 
     return (
-      <div className={classes.root}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="Menu"
-              onClick={this.toggleDrawer('left', true)}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography
-              variant="h6"
-              color="inherit"
-              className={classes.grow}
-              noWrap
-            >
-              <img
-                width={50}
-                height={50}
-                src="/static/images/logo.svg"
-                alt="Logo"
-              />
-              <Link href="/" prefetch>
-                <a className={classes.link}>{'<IT> Kurzy = Pišinger'}</a>
-              </Link>
+      <AppBar position="static" role="banner" className={classes.root}>
+        <Grid container alignItems="center">
+          <Grid item md={6}>
+            <Toolbar>
+              <IconButton
+                className={classes.menuButton}
+                color="inherit"
+                aria-label="Menu"
+                onClick={this.toggleDrawer('left', true)}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography
+                className={classes.grow}
+                component="p"
+                variant="h6"
+                noWrap
+              >
+                <img
+                  width={50}
+                  height={50}
+                  src="/static/images/logo.svg"
+                  alt="Logo IT Kurzy Pišinger"
+                />
+                <Link href="/" prefetch>
+                  <a className={classes.link}>{'<IT> Kurzy = Pišinger'}</a>
+                </Link>
+              </Typography>
+            </Toolbar>
+          </Grid>
+          <Grid item md={6}>
+            <Typography component="p" className={classes.project} variant="h6">
+              Toto je školní projekt studentů ČZU oboru INFONK
             </Typography>
-          </Toolbar>
-          <SwipeableDrawer
-            open={this.state.left}
-            onClose={this.toggleDrawer('left', false)}
-            onOpen={this.toggleDrawer('left', true)}
+          </Grid>
+        </Grid>
+        <SwipeableDrawer
+          open={this.state.left}
+          onClose={this.toggleDrawer('left', false)}
+          onOpen={this.toggleDrawer('left', true)}
+        >
+          <div
+            tabIndex={0}
+            role="button"
+            onClick={this.toggleDrawer('left', false)}
+            onKeyDown={this.toggleDrawer('left', false)}
           >
-            <div
-              tabIndex={0}
-              role="button"
-              onClick={this.toggleDrawer('left', false)}
-              onKeyDown={this.toggleDrawer('left', false)}
-            >
-              {sideList}
-            </div>
-          </SwipeableDrawer>
-        </AppBar>
-      </div>
+            {sideList}
+          </div>
+        </SwipeableDrawer>
+      </AppBar>
     );
   }
 }
@@ -169,4 +197,4 @@ Navigation.propTypes = {
   handleLogout: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(Navigation);
+export default withStyles(styles)(withRouter(Navigation));

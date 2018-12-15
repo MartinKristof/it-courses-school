@@ -44,57 +44,56 @@ class Index extends Component {
 
     return (
       <Fragment>
-        <main>
-          <Hero>
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="textPrimary"
-              gutterBottom
-            >
-              IT Kurzy
-            </Typography>
-            <Typography
-              variant="h6"
-              align="center"
-              color="textSecondary"
-              paragraph
-            >
-              Vítejte na stránce IT Kurzy, které pro vás připravil Petr
-              Pišinger. Můžete zde nalézt nejrůznější školení programování.
-              <br />
-              {!isLogged &&
-                'Pokud máte zájem o nějaký určitý kurz, přihlaste se nebo proveďte registraci, poté se podívejte do kurzu nebo můžete stisknout tlačítko koupit.'}
-            </Typography>
-            {!isLogged && (
-              <div className={classes.heroButtons}>
-                <Grid container spacing={16} justify="center">
-                  <Grid item>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={this.handleChangeRoute('/login')}
-                    >
-                      Přihlásit se
-                    </Button>
-                  </Grid>
-                  <Grid item>
-                    <Button
-                      variant="outlined"
-                      color="primary"
-                      onClick={this.handleChangeRoute('/signin')}
-                    >
-                      Registrovat se
-                    </Button>
-                  </Grid>
+        <Hero>
+          <Typography
+            component="h1"
+            variant="h2"
+            align="center"
+            color="textPrimary"
+            gutterBottom
+          >
+            IT Kurzy
+          </Typography>
+          <Typography
+            component="p"
+            variant="h6"
+            align="center"
+            color="textSecondary"
+            paragraph
+          >
+            Vítejte na stránce IT Kurzy, které pro vás připravil Petr Pišinger.
+            Můžete zde nalézt nejrůznější školení programování.
+            <br />
+            {!isLogged &&
+              'Po registraci a přihlášení si můžete uložit kurzy do oblíbených.'}
+          </Typography>
+          {!isLogged && (
+            <div className={classes.heroButtons}>
+              <Grid container spacing={16} justify="center">
+                <Grid item>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={this.handleChangeRoute('/login')}
+                  >
+                    Přihlásit se
+                  </Button>
                 </Grid>
-              </div>
-            )}
-          </Hero>
-        </main>
+                <Grid item>
+                  <Button
+                    variant="outlined"
+                    color="primary"
+                    onClick={this.handleChangeRoute('/signin')}
+                  >
+                    Registrovat se
+                  </Button>
+                </Grid>
+              </Grid>
+            </div>
+          )}
+        </Hero>
         <Layout>
-          <Typography variant="h4" component="h3">
+          <Typography variant="h4" component="h2">
             Doporučené kurzy
           </Typography>
           <CourseCardList isLogged={isLogged} courses={recommendedCourses} />

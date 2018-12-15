@@ -41,7 +41,7 @@ class Favorites extends Component {
         <Head>
           <title>IT Kurzy - Oblíbené kurzy</title>
         </Head>
-        <main>
+        <div>
           <Hero>
             <Typography
               component="h1"
@@ -53,6 +53,7 @@ class Favorites extends Component {
               Oblíbené kurzy
             </Typography>
             <Typography
+              component="p"
               variant="h6"
               align="center"
               color="textSecondary"
@@ -61,7 +62,7 @@ class Favorites extends Component {
               Zde si můžete prohlídnout své oblíbené kurzy.
             </Typography>
           </Hero>
-        </main>
+        </div>
         <Layout>
           <CourseCardList isLogged={isLogged} courses={favoriteCourses} />
         </Layout>

@@ -16,6 +16,7 @@ import { withRouter } from 'next/router';
 import { formStyles } from '../src/styles/shared';
 import Head from 'next/head';
 import { redirectIfAuthenticated } from '../src/services/auth/auth';
+import RequiredInputs from '../src/components/RequiredInputs';
 
 class SignIn extends Component {
   static getInitialProps(context) {
@@ -44,7 +45,7 @@ class SignIn extends Component {
         <Head>
           <title>IT Kurzy - Registrace</title>
         </Head>
-        <main className={classes.main}>
+        <div className={classes.main}>
           <CssBaseline />
           <Paper className={classes.paper}>
             <Avatar className={classes.avatar}>
@@ -60,44 +61,34 @@ class SignIn extends Component {
                   id="email"
                   type="email"
                   name="email"
+                  placeholder="jan@novak.cz"
                   autoComplete="email"
                   autoFocus
                 />
               </FormControl>
               <FormControl margin="normal" required fullWidth>
                 <InputLabel htmlFor="password">Heslo</InputLabel>
-                <Input
-                  name="password"
-                  type="password"
-                  id="password"
-                  autoComplete="current-password"
-                />
+                <Input name="password" type="password" id="password" />
               </FormControl>
               <FormControl margin="normal" required fullWidth>
                 <InputLabel htmlFor="password-again">Potrzení hesla</InputLabel>
-                <Input
-                  name="password"
-                  type="password"
-                  id="password-again"
-                  autoComplete="current-password"
-                />
+                <Input name="password" type="password" id="password-again" />
               </FormControl>
               <FormControl margin="normal" fullWidth>
                 <InputLabel htmlFor="firstname">Jméno</InputLabel>
-                <Input
-                  id="firstname"
-                  name="firstname"
-                  autoComplete="firstname"
-                />
+                <Input id="firstname" name="firstname" placeholder="Jan" />
               </FormControl>
               <FormControl margin="normal" fullWidth>
-                <InputLabel htmlFor="surname">Příjmení</InputLabel>
-                <Input id="surname" name="surname" autoComplete="surname" />
+                <InputLabel htmlFor="surname" placeholder="Novák">
+                  Příjmení
+                </InputLabel>
+                <Input id="surname" name="surname" />
               </FormControl>
               <FormControlLabel
                 control={<Checkbox value="terms" color="primary" required />}
                 label="Souhlasím s obchodními podmínkami"
               />
+              <RequiredInputs />
               <Button
                 type="submit"
                 fullWidth
@@ -109,7 +100,7 @@ class SignIn extends Component {
               </Button>
             </form>
           </Paper>
-        </main>
+        </div>
       </Fragment>
     );
   }

@@ -9,24 +9,18 @@ import InputLabel from '@material-ui/core/InputLabel/InputLabel';
 import Input from '@material-ui/core/Input/Input';
 import Button from '@material-ui/core/Button/Button';
 import PropTypes from 'prop-types';
+import getConfig from 'next/config';
 import withStyles from '@material-ui/core/styles/withStyles';
 import FormControlLabel from '@material-ui/core/FormControlLabel/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox/Checkbox';
 import { withRouter } from 'next/router';
 import { formStyles } from '../src/styles/shared';
 import Head from 'next/head';
-import { redirectIfAuthenticated } from '../src/services/auth/auth';
 import RequiredInputs from '../src/components/RequiredInputs';
 
+const { publicRuntimeConfig } = getConfig();
+
 class SignIn extends Component {
-  static getInitialProps(context) {
-    if (redirectIfAuthenticated(context)) {
-      return {};
-    }
-
-    return {};
-  }
-
   handleSubmit = (event) => {
     event.preventDefault();
     const { showNotifier, router, handleLogin } = this.props;
@@ -34,7 +28,7 @@ class SignIn extends Component {
     handleLogin();
 
     showNotifier('Registrace proběhla v porřádku.', 'success');
-    router.push('/');
+    router.push('/', `${publicRuntimeConfig.linkPrefix}/`);
   };
 
   render() {

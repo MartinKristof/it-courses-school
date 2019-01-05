@@ -1,11 +1,14 @@
 import cookie from 'js-cookie';
 
-const getCookieFromBrowser = (key) => cookie.get(key);
+export const getCookieFromBrowser = (key) => cookie.get(key);
+
+const isServer = typeof window === 'undefined';
 
 const getCookieFromServer = (key, request) => {
-  if (!request.headers.cookie) {
+  if (isServer || !request.headers.cookie) {
     return null;
   }
+
   const rawCookie = request.headers.cookie
     .split(';')
     .find((c) => c.trim().startsWith(`${key}=`));
@@ -13,6 +16,7 @@ const getCookieFromServer = (key, request) => {
   if (!rawCookie) {
     return null;
   }
+
   return rawCookie.split('=')[1];
 };
 

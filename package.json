@@ -26,6 +26,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "export": "NODE_ENV=export next build && next export -o dist",
     "pretty": "prettier --write 'src/**/*.js' 'pages/*.js'",
     "pretty:check": "prettier --list-different 'src/**/*.js' 'pages/*.js'",
     "api:watch": "json-server --watch api/api.json",

@@ -5,6 +5,9 @@ import BreadcrumbItem from './Breadcrumb/BreadcrumbItem';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import { withRouter } from 'next/router';
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
 
 const styles = (theme) => ({
   paper: {
@@ -18,7 +21,7 @@ class Breadcrumbs extends React.PureComponent {
   handleClick = (link) => (event) => {
     const { router } = this.props;
 
-    router.push(link);
+    router.push(link, `${publicRuntimeConfig.linkPrefix}${link}`);
   };
 
   resolveItems = () => {

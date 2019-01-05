@@ -2,6 +2,9 @@ import { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Document, { Head, Main, NextScript } from 'next/document';
 import flush from 'styled-jsx/server';
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
 
 class MyDocument extends Document {
   render() {
@@ -27,8 +30,14 @@ class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
           />
-          <link rel="stylesheet" href="/static/nprogress.css" />
-          <link rel="stylesheet" href="/static/image-gallery.css" />
+          <link
+            rel="stylesheet"
+            href={`${publicRuntimeConfig.cdnPath}/static/nprogress.css`}
+          />
+          <link
+            rel="stylesheet"
+            href={`${publicRuntimeConfig.cdnPath}/static/image-gallery.css`}
+          />
         </Head>
         <body>
           <Main />

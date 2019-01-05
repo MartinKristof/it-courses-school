@@ -20,11 +20,14 @@ import Chip from '@material-ui/core/Chip/Chip';
 import Ratings from '../src/components/Ratings';
 import TextField from '@material-ui/core/TextField';
 import Divider from '@material-ui/core/Divider';
+import getConfig from 'next/config';
 import Hero from '../src/components/Hero';
 import Gallery from '../src/components/Gallery';
 import Layout from '../src/layout/Layout';
 import Error from './_error';
 import api from '../api/api.json';
+
+const { publicRuntimeConfig } = getConfig();
 
 const styles = (theme) => ({
   '@global': {
@@ -103,10 +106,13 @@ class Detail extends Component {
       course: { id },
     } = this.props;
 
-    router.push({
-      pathname: '/course-register',
-      query: { id },
-    });
+    router.push(
+      {
+        pathname: '/course-register',
+        query: { id },
+      },
+      `${publicRuntimeConfig.linkPrefix}/course-register/${id}`,
+    );
   };
 
   render() {
@@ -160,7 +166,12 @@ class Detail extends Component {
                   <Grid item xs={12}>
                     <div className={classes.lectorBlock}>
                       <Avatar className={classes.avatar}>
-                        <img src={lector.avatar.path} alt="Lector" />
+                        <img
+                          src={`${publicRuntimeConfig.cdnPath}${
+                            lector.avatar.path
+                          }`}
+                          alt="Lector"
+                        />
                       </Avatar>
                       <Typography
                         component="h2"

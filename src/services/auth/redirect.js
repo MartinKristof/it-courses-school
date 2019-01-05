@@ -1,4 +1,7 @@
 import Router from 'next/router';
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
 
 export default (target, response) => {
   if (response) {
@@ -11,6 +14,6 @@ export default (target, response) => {
   // location for the new one, removing it from history.
 
   if (process.browser) {
-    Router.replace(target);
+    Router.replace(target, `${publicRuntimeConfig.linkPrefix}${target}`);
   }
 };

@@ -9,10 +9,13 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Link from 'next/link';
+import getConfig from 'next/config';
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
 import RequiredInputs from '../RequiredInputs';
+
+const { publicRuntimeConfig } = getConfig();
 
 const styles = (theme) => ({
   layout: {
@@ -160,7 +163,7 @@ class Checkout extends PureComponent {
                   kurzu.
                 </Typography>
                 <div className={classes.link}>
-                  <Link href="/">
+                  <Link href="/" as={`${publicRuntimeConfig.linkPrefix}/`}>
                     <a>Na hlavní stránku</a>
                   </Link>
                 </div>

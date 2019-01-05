@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core';
 import { withRouter } from 'next/router';
 import Link from 'next/link';
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
 
 const styles = (theme) => ({
   card: {
@@ -33,10 +36,11 @@ const styles = (theme) => ({
 });
 
 class CourseCard extends React.PureComponent {
-  handleClick = (query) => (event) => {
+  handleClick = (params) => (event) => {
     const { router } = this.props;
+    const { pathname, query, as } = params;
 
-    router.push(query);
+    router.push({ pathname, query }, as);
   };
 
   handleClickRemove = () => {
@@ -44,7 +48,7 @@ class CourseCard extends React.PureComponent {
 
     //showNotifier('Kurz byl odebrán z oblíbených', 'success');
 
-    router.push({ pathname: '/' });
+    router.push('/', `${publicRuntimeConfig.linkPrefix}/`);
   };
 
   render() {
@@ -64,11 +68,14 @@ class CourseCard extends React.PureComponent {
       <Card className={classes.card}>
         <CardMedia
           className={classes.cardMedia}
-          image={path}
+          image={`${publicRuntimeConfig.cdnPath}${path}`}
           title={imageTitle}
         />
         <CardContent className={classes.cardContent}>
-          <Link href={linkDetail} prefetch>
+          <Link
+            href={linkDetail}
+            as={`${publicRuntimeConfig.linkPrefix}/detail/${id}`}
+          >
             <Typography
               gutterBottom
               variant="h6"
@@ -87,6 +94,7 @@ class CourseCard extends React.PureComponent {
             onClick={this.handleClick({
               pathname: '/course-register',
               query: { id },
+              as: `${publicRuntimeConfig.linkPrefix}/course-register/${id}`,
             })}
           >
             Koupit
@@ -103,7 +111,11 @@ class CourseCard extends React.PureComponent {
             <Button
               size="small"
               color="secondary"
-              onClick={this.handleClick(linkDetail)}
+              onClick={this.handleClick({
+                pathname: '/detail',
+                query: { id },
+                as: `${publicRuntimeConfig.linkPrefix}/detail/${id}`,
+              })}
             >
               Podrobnosti
             </Button>

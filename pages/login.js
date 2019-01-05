@@ -14,18 +14,12 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import { withRouter } from 'next/router';
 import { formStyles } from '../src/styles/shared';
 import Head from 'next/head';
-import { redirectIfAuthenticated } from '../src/services/auth/auth';
+import getConfig from 'next/config';
 import RequiredInputs from '../src/components/RequiredInputs';
 
+const { publicRuntimeConfig } = getConfig();
+
 class Login extends Component {
-  static getInitialProps(context) {
-    if (redirectIfAuthenticated(context)) {
-      return {};
-    }
-
-    return {};
-  }
-
   handleSubmit = (event) => {
     event.preventDefault();
     const { showNotifier, router, handleLogin } = this.props;
@@ -33,7 +27,7 @@ class Login extends Component {
     handleLogin();
     showNotifier('Přihlášení proběhlo v pořádku', 'success');
 
-    router.push('/');
+    router.push('/', `${publicRuntimeConfig.linkPrefix}/`);
   };
 
   render() {
@@ -77,7 +71,10 @@ class Login extends Component {
               <FormControl margin="normal" fullWidth>
                 <Typography component="p">
                   Nemáte účet?{' '}
-                  <Link href="/signin">
+                  <Link
+                    href="/signin"
+                    as={`${publicRuntimeConfig.linkPrefix}/signin`}
+                  >
                     <a>Registrujte se!</a>
                   </Link>
                 </Typography>

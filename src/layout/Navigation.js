@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import getConfig from 'next/config';
 import { withStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import List from '@material-ui/core/List';
@@ -20,6 +21,8 @@ import IconButton from '@material-ui/core/IconButton/IconButton';
 import Typography from '@material-ui/core/Typography/Typography';
 import Toolbar from '@material-ui/core/Toolbar/Toolbar';
 import Grid from '@material-ui/core/Grid';
+
+const { publicRuntimeConfig } = getConfig();
 
 const styles = (theme) => ({
   list: {
@@ -79,7 +82,11 @@ class Navigation extends React.Component {
     const sideList = (
       <div className={classes.list}>
         <List component="nav" role="navigation" aria-label="Main navigation">
-          <Link href={this.ROUTE_COURSES} prefetch>
+          <Link
+            href={this.ROUTE_COURSES}
+            as={`${publicRuntimeConfig.linkPrefix}${this.ROUTE_COURSES}`}
+            prefetch
+          >
             <ListItem
               button
               selected={router.route === this.ROUTE_COURSES}
@@ -92,7 +99,11 @@ class Navigation extends React.Component {
             </ListItem>
           </Link>
           {isLogged && (
-            <Link href={this.ROUTE_FAVORITES} prefetch>
+            <Link
+              href={this.ROUTE_FAVORITES}
+              as={`${publicRuntimeConfig.linkPrefix}${this.ROUTE_FAVORITES}`}
+              prefetch
+            >
               <ListItem button selected={router.route === this.ROUTE_FAVORITES}>
                 <ListItemIcon>
                   <StarIcon />
@@ -113,7 +124,11 @@ class Navigation extends React.Component {
             </ListItem>
           ) : (
             <Fragment>
-              <Link href={this.ROUTE_LOGIN} prefetch>
+              <Link
+                href={this.ROUTE_LOGIN}
+                as={`${publicRuntimeConfig.linkPrefix}${this.ROUTE_LOGIN}`}
+                prefetch
+              >
                 <ListItem button selected={router.route === this.ROUTE_LOGIN}>
                   <ListItemIcon>
                     <AccountCircleIcon />
@@ -121,7 +136,11 @@ class Navigation extends React.Component {
                   <ListItemText primary="Přihlásit" />
                 </ListItem>
               </Link>
-              <Link href={this.ROUTE_SIGNIN} prefetch>
+              <Link
+                href={this.ROUTE_SIGNIN}
+                as={`${publicRuntimeConfig.linkPrefix}${this.ROUTE_SIGNIN}`}
+                prefetch
+              >
                 <ListItem button selected={router.route === this.ROUTE_SIGNIN}>
                   <ListItemIcon>
                     <PersonAddIcon />
@@ -157,10 +176,14 @@ class Navigation extends React.Component {
                 <img
                   width={50}
                   height={50}
-                  src="/static/images/logo.svg"
+                  src={`${publicRuntimeConfig.cdnPath}/static/images/logo.svg`}
                   alt="Logo IT Kurzy Pišinger"
                 />
-                <Link href="/" prefetch>
+                <Link
+                  href="/"
+                  prefetch
+                  as={`${publicRuntimeConfig.linkPrefix}/`}
+                >
                   <a className={classes.link}>{'<IT> Kurzy = Pišinger'}</a>
                 </Link>
               </Typography>

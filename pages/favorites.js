@@ -10,7 +10,8 @@ import api from '../api/api.json';
 
 class Favorites extends Component {
   static async getInitialProps(context) {
-    if (redirectIfNotAuthenticated(context)) {
+    const isServer = typeof window === 'undefined';
+    if (!isServer && redirectIfNotAuthenticated(context)) {
       return {
         isLogged: false,
       };

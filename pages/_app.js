@@ -12,6 +12,10 @@ import Header from '../src/layout/Header';
 import Footer from '../src/layout/Footer';
 import Notifier from '../src/components/Notifier';
 import { isAuthenticated } from '../src/services/auth/auth';
+import getConfig from 'next/config';
+import { getCookieFromBrowser } from '../src/services/auth/session';
+
+const { publicRuntimeConfig } = getConfig();
 
 class MyApp extends App {
   constructor(props) {
@@ -66,6 +70,10 @@ class MyApp extends App {
     Router.events.on('routeChangeError', () => {
       NProgress.done();
     });
+
+    this.setState({
+      isLogged: !!getCookieFromBrowser('jwt'),
+    });
   }
 
   handleLogout = () => {
@@ -74,7 +82,7 @@ class MyApp extends App {
     this.setState({ isLogged: false });
     this.showNotifier('Odhlášení se podařilo', 'info');
 
-    Router.replace('/');
+    Router.replace('/', `${publicRuntimeConfig.linkPrefix}/`);
   };
 
   handleLogin = () => {

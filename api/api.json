@@ -97,38 +97,38 @@
       },
       "images": [
         {
-          "original": "static/images/classroom-2093743_1920.jpg",
-          "thumbnail": "static/images/thumbs/classroom-2093743_1920.jpg",
+          "original": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/classroom-2093743_1920.jpg",
+          "thumbnail": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/thumbs/classroom-2093743_1920.jpg",
           "originalAlt": "Java - Od začátečníka k expertovi - Učebna",
           "thumbnailAlt": "Java - Od začátečníka k expertovi - Učebna"
         },
         {
-          "original": "static/images/classroom-2093744_1920.jpg",
-          "thumbnail": "static/images/thumbs/classroom-2093744_1920.jpg",
+          "original": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/classroom-2093744_1920.jpg",
+          "thumbnail": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/thumbs/classroom-2093744_1920.jpg",
           "originalAlt": "Java - Od začátečníka k expertovi - Lavice ",
           "thumbnailAlt": "Java - Od začátečníka k expertovi - Lavice"
         },
         {
-          "original": "static/images/coding-924920_1920.jpg",
-          "thumbnail": "static/images/thumbs/coding-924920_1920.jpg",
+          "original": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/coding-924920_1920.jpg",
+          "thumbnail": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/thumbs/coding-924920_1920.jpg",
           "originalAlt": "Java - Od začátečníka k expertovi - Počítač",
           "thumbnailAlt": "Java - Od začátečníka k expertovi - Počítač"
         },
         {
-          "original": "static/images/artificial-intelligence-2167835_1920.jpg",
-          "thumbnail": "static/images/thumbs/artificial-intelligence-2167835_1920.jpg",
+          "original": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/artificial-intelligence-2167835_1920.jpg",
+          "thumbnail": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/thumbs/artificial-intelligence-2167835_1920.jpg",
           "originalAlt": "Java - Od začátečníka k expertovi - Inteligence",
           "thumbnailAlt": "Java - Od začátečníka k expertovi - Inteligence"
         },
         {
-          "original": "static/images/office-1209640_1920.jpg",
-          "thumbnail": "static/images/thumbs/office-1209640_1920.jpg",
+          "original": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/office-1209640_1920.jpg",
+          "thumbnail": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/thumbs/office-1209640_1920.jpg",
           "originalAlt": "Java - Od začátečníka k expertovi - Kancelář",
           "thumbnailAlt": "Java - Od začátečníka k expertovi - Kancelář"
         },
         {
-          "original": "static/images/programming-593312_1920.jpg",
-          "thumbnail": "static/images/thumbs/programming-593312_1920.jpg",
+          "original": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/programming-593312_1920.jpg",
+          "thumbnail": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/thumbs/programming-593312_1920.jpg",
           "originalAlt": "Java - Od začátečníka k expertovi - Programování",
           "thumbnailAlt": "Java - Od začátečníka k expertovi - Programování"
         }
@@ -196,20 +196,20 @@
       },
       "images": [
         {
-          "original": "static/images/office-1209640_1920.jpg",
-          "thumbnail": "static/images/thumbs/office-1209640_1920.jpg",
+          "original": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/office-1209640_1920.jpg",
+          "thumbnail": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/thumbs/office-1209640_1920.jpg",
           "originalAlt": "Python - Kurz pro úplné začátečníky - Kancelář",
           "thumbnailAlt": "Python - Kurz pro úplné začátečníky - Kancelář"
         },
         {
-          "original": "static/images/classroom-2093743_1920.jpg",
-          "thumbnail": "static/images/thumbs/classroom-2093743_1920.jpg",
+          "original": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/classroom-2093743_1920.jpg",
+          "thumbnail": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/thumbs/classroom-2093743_1920.jpg",
           "originalAlt": "Python - Kurz pro úplné začátečníky - Učebna",
           "thumbnailAlt": "Python - Kurz pro úplné začátečníky - Učebna"
         },
         {
-          "original": "static/images/programming-593312_1920.jpg",
-          "thumbnail": "static/images/thumbs/programming-593312_1920.jpg",
+          "original": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/programming-593312_1920.jpg",
+          "thumbnail": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/thumbs/programming-593312_1920.jpg",
           "originalAlt": "Python - Kurz pro úplné začátečníky - Programování",
           "thumbnailAlt": "Python - Kurz pro úplné začátečníky - Programování"
         }
@@ -221,7 +221,7 @@
           "title": "Lektor Petr Pišinger"
         }
       },
-      "favorite": false,
+      "favorite": true,
       "tags": [
         {
           "label": "Python"
@@ -273,26 +273,26 @@
       },
       "images": [
         {
-          "original": "static/images/coding-924920_1920.jpg",
-          "thumbnail": "static/images/thumbs/coding-924920_1920.jpg",
+          "original": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/coding-924920_1920.jpg",
+          "thumbnail": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/thumbs/coding-924920_1920.jpg",
           "originalAlt": "Bash skriptování a Shell programování - Kódování",
           "thumbnailAlt": "Bash skriptování a Shell programování - Kódování"
         },
         {
-          "original": "static/images/classroom-2093743_1920.jpg",
-          "thumbnail": "static/images/thumbs/classroom-2093743_1920.jpg",
+          "original": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/classroom-2093743_1920.jpg",
+          "thumbnail": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/thumbs/classroom-2093743_1920.jpg",
           "originalAlt": "Bash skriptování a Shell programování - Lavice",
           "thumbnailAlt": "Bash skriptování a Shell programování - Lavice"
         },
         {
-          "original": "static/images/classroom-2093744_1920.jpg",
-          "thumbnail": "static/images/thumbs/classroom-2093744_1920.jpg",
+          "original": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/classroom-2093744_1920.jpg",
+          "thumbnail": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/thumbs/classroom-2093744_1920.jpg",
           "originalAlt": "Bash skriptování a Shell programování - Učebna",
           "thumbnailAlt": "Bash skriptování a Shell programování - Učebna"
         },
         {
-          "original": "static/images/programming-593312_1920.jpg",
-          "thumbnail": "static/images/thumbs/programming-593312_1920.jpg",
+          "original": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/programming-593312_1920.jpg",
+          "thumbnail": "http://kitlab.pef.czu.cz/1819zs/ete89e/02/static/images/thumbs/programming-593312_1920.jpg",
           "originalAlt": "Bash skriptování a Shell programování - Programování",
           "thumbnailAlt": "Bash skriptování a Shell programování - Programování"
         }
@@ -304,7 +304,7 @@
           "title": "Lektor Petr Pišinger"
         }
       },
-      "favorite": false,
+      "favorite": true,
       "tags": [
         {
           "label": "Bash"

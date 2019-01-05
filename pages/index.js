@@ -5,10 +5,13 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import { withRouter } from 'next/router';
+import getConfig from 'next/config';
 import CourseCardList from '../src/components/CourseCardList';
 import Hero from '../src/components/Hero';
 import Layout from '../src/layout/Layout';
 import api from '../api/api.json';
+
+const { publicRuntimeConfig } = getConfig();
 
 const styles = (theme) => ({
   heroButtons: {
@@ -36,7 +39,7 @@ class Index extends Component {
   handleChangeRoute = (route) => (event) => {
     const { router } = this.props;
 
-    router.push(route);
+    router.push(route, `${publicRuntimeConfig.linkPrefix}${route}`);
   };
 
   render() {
